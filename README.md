@@ -1,261 +1,184 @@
-# AI1 Design System
+# Next.js 16 Full Stack Project
 
-A comprehensive design system built with Next.js, Tailwind CSS, and shadcn/ui, featuring AI-focused brand colors, custom components, and modern UI utilities.
-
-## Features
-
-- 🎨 **AI1 Brand Colors**: Deep Blue, Electric Blue, Cyan/Teal, Purple gradient, and neutrals
-- 🔤 **Typography System**: Inter + Sora fonts via next/font with scalable type scale
-- 🎭 **Light/Dark Mode**: Full support for both themes with carefully crafted palettes
-- ✨ **Glassmorphism**: Modern translucent UI effects and utilities
-- 🌈 **Gradient Utilities**: Pre-built gradients for backgrounds and text
-- 📦 **50+ Components**: All shadcn/ui components + custom AI1 components
-- 🎯 **Accessible**: WCAG 2.1 AA compliant with focus states and semantic HTML
-- 📱 **Responsive**: Mobile-first design with responsive utilities
-
-## Quick Start
-
-### Installation
-
-```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-# Build for production
-npm run build
-```
-
-Visit [http://localhost:3000](http://localhost:3000) to see the design system showcase.
-
-## Brand Colors
-
-### Primary Palette
-
-- **Deep Blue**: `#0A1929` (light) / `#0F172A` (dark)
-- **Electric Blue**: `#2563EB` (light) / `#3B82F6` (dark)
-- **Cyan**: `#06B6D4` (light) / `#22D3EE` (dark)
-- **Teal**: `#14B8A6` (light) / `#2DD4BF` (dark)
-- **Purple**: `#7C3AED` (light) / `#8B5CF6` (dark)
-- **Purple Light**: `#A78BFA` (light) / `#C4B5FD` (dark)
-
-### Usage
-
-```tsx
-// Tailwind classes
-<div className="bg-electric-blue text-white">
-  <h1 className="text-deep-blue">Heading</h1>
-</div>
-
-// CSS variables
-.custom-element {
-  background: var(--electric-blue);
-  color: var(--cyan);
-}
-```
-
-## Typography
-
-### Fonts
-
-- **Inter** (Primary): Body text, UI elements
-- **Sora** (Headings): Headlines, titles, emphasis
-
-### Usage
-
-```tsx
-<h1 className="font-heading text-6xl font-bold">
-  Headline with Sora
-</h1>
-
-<p className="font-sans text-base">
-  Body text with Inter
-</p>
-```
-
-## Components
-
-### shadcn/ui Components
-
-All standard shadcn/ui components are included and styled with AI1 branding:
-
-- Button, Input, Textarea, Select
-- Dialog, Sheet, Dropdown Menu
-- Card, Badge, Skeleton
-- Toggle, Accordion, Navigation Menu
-
-### AI1 Custom Components
-
-#### SectionWrapper
-
-Container component for consistent section spacing.
-
-```tsx
-import { SectionWrapper } from "@/components/ai1";
-
-<SectionWrapper variant="glass" id="features">
-  <h2>Features</h2>
-</SectionWrapper>
-```
-
-#### Headline
-
-Branded headline with gradient and styling options.
-
-```tsx
-import { Headline } from "@/components/ai1";
-
-<Headline 
-  as="h1" 
-  variant="gradient"
-  subtitle="Your subtitle here"
->
-  Main Headline
-</Headline>
-```
-
-#### GradientDivider
-
-Visual separator with gradient styling.
-
-```tsx
-import { GradientDivider } from "@/components/ai1";
-
-<GradientDivider variant="ai1" height="lg" />
-```
-
-#### CTABanner
-
-Call-to-action banner with actions.
-
-```tsx
-import { CTABanner } from "@/components/ai1";
-
-<CTABanner
-  title="Ready to get started?"
-  description="Join thousands using AI1"
-  variant="gradient"
-  primaryAction={{ label: "Get Started", href: "/signup" }}
-  secondaryAction={{ label: "Learn More", href: "/docs" }}
-/>
-```
-
-#### StatBadge
-
-Display statistics with style.
-
-```tsx
-import { StatBadge } from "@/components/ai1";
-
-<StatBadge
-  value="99.9%"
-  label="Uptime"
-  variant="electric"
-  trend={{ value: 2.5, direction: "up" }}
-/>
-```
-
-## Utilities
-
-### Glassmorphism
-
-```tsx
-<div className="glass-card p-6 rounded-xl">
-  Translucent glass effect
-</div>
-```
-
-### Gradients
-
-```tsx
-// Background gradient
-<div className="gradient-ai1 p-8">
-  Content with gradient background
-</div>
-
-// Text gradient
-<h1 className="gradient-text text-6xl">
-  Gradient text
-</h1>
-```
-
-### Shadows
-
-```tsx
-<div className="shadow-ai1-lg">
-  Element with AI1 shadow
-</div>
-
-<div className="glow-cyan">
-  Element with cyan glow
-</div>
-```
-
-## Documentation
-
-See [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) for comprehensive documentation including:
-
-- Complete color palette
-- Typography scale
-- Spacing system
-- Component API
-- Usage examples
-- Best practices
-- Accessibility guidelines
-
-## File Structure
-
-```
-/app
-  /globals.css         # Theme tokens, utilities
-  /layout.tsx          # Root layout with fonts
-  /page.tsx            # Showcase page
-/components
-  /ui                  # shadcn/ui components
-  /ai1                 # AI1 custom components
-    /section-wrapper.tsx
-    /headline.tsx
-    /gradient-divider.tsx
-    /cta-banner.tsx
-    /stat-badge.tsx
-    /index.ts
-/lib
-  /utils.ts            # Utility functions
-```
+A modern full-stack Next.js 16 application with TypeScript, Tailwind CSS, Prisma, and more.
 
 ## Tech Stack
 
-- **Framework**: Next.js 16 (App Router)
-- **Styling**: Tailwind CSS v4
-- **Components**: shadcn/ui
-- **Fonts**: next/font (Inter + Sora)
-- **TypeScript**: Full type safety
-- **React**: 19.2.0
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript (Strict Mode)
+- **Styling:** Tailwind CSS v4 with dark mode support
+- **Database:** Prisma with MongoDB
+- **UI Components:** Lucide React icons, class-variance-authority
+- **Validation:** Zod
+- **Email:** @react-email/components
+- **Theme:** next-themes for dark mode
+- **Code Quality:** ESLint, Prettier, Husky, lint-staged
 
-## Dark Mode
+## Getting Started
 
-Toggle dark mode by adding the `dark` class to the `<html>` element:
+### Prerequisites
 
-```tsx
-// Toggle dark mode
-document.documentElement.classList.toggle("dark");
+- Node.js 18.17 or later
+- npm, yarn, pnpm, or bun
+- MongoDB database (local or cloud instance)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+cd <project-directory>
 ```
 
-All components automatically adapt to the current theme.
+2. Install dependencies:
 
-## Browser Support
+```bash
+npm install
+```
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+3. Set up environment variables:
+
+Copy the `.env.local.example` file to `.env` and update with your actual values:
+
+```bash
+cp .env.local.example .env
+```
+
+Required environment variables:
+
+- `DATABASE_URL`: MongoDB connection string
+  - Format: `mongodb+srv://username:password@cluster.mongodb.net/database?retryWrites=true&w=majority`
+  - Get your connection string from MongoDB Atlas or your MongoDB instance
+
+### Database Setup
+
+1. Configure your MongoDB connection string in the `.env` file
+
+2. Generate Prisma Client:
+
+```bash
+npx prisma generate
+```
+
+3. Push your schema to the database (for development):
+
+```bash
+npx prisma db push
+```
+
+For production, use migrations:
+
+```bash
+npx prisma migrate dev --name init
+```
+
+### Development
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Run ESLint with auto-fix
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check code formatting
+- `npm run type-check` - Run TypeScript type checking
+
+## Project Structure
+
+```
+├── prisma/
+│   └── schema.prisma       # Database schema
+├── public/                 # Static assets
+├── src/
+│   ├── app/                # Next.js App Router pages
+│   │   ├── globals.css     # Global styles with Tailwind
+│   │   ├── layout.tsx      # Root layout
+│   │   └── page.tsx        # Home page
+│   └── lib/
+│       └── utils.ts        # Utility functions (cn helper)
+├── .env                    # Environment variables (not in git)
+├── .env.local.example      # Environment variables template
+├── .prettierrc.json        # Prettier configuration
+├── eslint.config.mjs       # ESLint configuration
+├── next.config.ts          # Next.js configuration
+├── postcss.config.mjs      # PostCSS configuration
+├── tailwind.config.ts      # Tailwind CSS configuration
+└── tsconfig.json           # TypeScript configuration
+```
+
+## Features
+
+### TypeScript
+
+- Strict mode enabled
+- Path aliases configured (`@/*` for `src/*`)
+- Full type safety across the project
+
+### Tailwind CSS
+
+- Tailwind CSS v4 with PostCSS
+- Dark mode using class strategy
+- CSS reset included
+- Utility classes for consistent styling
+
+### Code Quality
+
+- ESLint with Next.js, TypeScript, and Prettier configurations
+- Prettier with Tailwind CSS plugin for class sorting
+- Husky for git hooks
+- lint-staged for pre-commit checks
+
+### Database
+
+- Prisma ORM with MongoDB
+- Type-safe database access
+- Schema-first development
+
+### Dark Mode
+
+Dark mode is configured with class strategy. To implement it in your components:
+
+1. Wrap your app with `ThemeProvider` from `next-themes`
+2. Toggle dark mode by adding/removing the `dark` class on the `<html>` element
+
+## Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+# Database
+DATABASE_URL="mongodb+srv://username:password@cluster.mongodb.net/database?retryWrites=true&w=majority"
+
+# Add other environment variables as needed
+```
+
+See `.env.local.example` for a complete template.
+
+## Contributing
+
+1. Create a feature branch
+2. Make your changes
+3. Ensure all tests and linting pass
+4. Submit a pull request
+
+## Learn More
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Prisma Documentation](https://www.prisma.io/docs)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs)
 
 ## License
 
-MIT
-
-## Support
-
-For questions or issues, refer to the [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) documentation.
+[Your License Here]
