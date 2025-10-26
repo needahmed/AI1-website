@@ -57,7 +57,7 @@ export function TurnaroundCTASection() {
   return (
     <section
       ref={sectionRef}
-      className="py-32 relative overflow-hidden bg-gradient-to-br from-deep-blue via-electric-blue to-purple"
+      className="py-32 relative overflow-hidden bg-gradient-to-br from-deep-blue via-electric-blue to-purple w-full max-w-full"
     >
       {/* Animated background */}
       <div className="absolute inset-0 overflow-hidden">

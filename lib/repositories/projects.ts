@@ -134,11 +134,11 @@ export async function createProject(input: CreateProjectInput) {
     });
     
     // Revalidate caches
-    revalidateTag(PROJECT_CACHE_TAGS.all);
+    revalidateTag(PROJECT_CACHE_TAGS.all, "default");
     if (project.featured) {
-      revalidateTag(PROJECT_CACHE_TAGS.featured);
+      revalidateTag(PROJECT_CACHE_TAGS.featured, "default");
     }
-    revalidateTag(PROJECT_CACHE_TAGS.byCategory(project.category));
+    revalidateTag(PROJECT_CACHE_TAGS.byCategory(project.category), "default");
     revalidatePath("/projects");
     
     logger.info("Created project", { id: project.id, slug: project.slug });
@@ -174,18 +174,18 @@ export async function updateProject(slug: string, input: UpdateProjectInput) {
     });
     
     // Revalidate caches
-    revalidateTag(PROJECT_CACHE_TAGS.all);
-    revalidateTag(PROJECT_CACHE_TAGS.bySlug(slug));
+    revalidateTag(PROJECT_CACHE_TAGS.all, "default");
+    revalidateTag(PROJECT_CACHE_TAGS.bySlug(slug), "default");
     
     // If featured status changed, revalidate featured cache
     if (existingProject.featured !== project.featured) {
-      revalidateTag(PROJECT_CACHE_TAGS.featured);
+      revalidateTag(PROJECT_CACHE_TAGS.featured, "default");
     }
     
     // If category changed, revalidate both old and new category caches
     if (existingProject.category !== project.category) {
-      revalidateTag(PROJECT_CACHE_TAGS.byCategory(existingProject.category));
-      revalidateTag(PROJECT_CACHE_TAGS.byCategory(project.category));
+      revalidateTag(PROJECT_CACHE_TAGS.byCategory(existingProject.category), "default");
+      revalidateTag(PROJECT_CACHE_TAGS.byCategory(project.category), "default");
     }
     
     revalidatePath("/projects");
@@ -214,12 +214,12 @@ export async function deleteProject(slug: string) {
     });
     
     // Revalidate caches
-    revalidateTag(PROJECT_CACHE_TAGS.all);
-    revalidateTag(PROJECT_CACHE_TAGS.bySlug(slug));
+    revalidateTag(PROJECT_CACHE_TAGS.all, "default");
+    revalidateTag(PROJECT_CACHE_TAGS.bySlug(slug), "default");
     if (project.featured) {
-      revalidateTag(PROJECT_CACHE_TAGS.featured);
+      revalidateTag(PROJECT_CACHE_TAGS.featured, "default");
     }
-    revalidateTag(PROJECT_CACHE_TAGS.byCategory(project.category));
+    revalidateTag(PROJECT_CACHE_TAGS.byCategory(project.category), "default");
     revalidatePath("/projects");
     
     logger.info("Deleted project", { slug });
@@ -229,3 +229,23 @@ export async function deleteProject(slug: string) {
     throw handlePrismaError(error);
   }
 }
+
+/**
+ * Project Repository
+ * Collection of all project-related database operations
+ */
+export const projectRepository = {
+  findAll: async (options?: { featured?: boolean; limit?: number }) => {
+    if (options?.featured) {
+      const projects = await getFeaturedProjects();
+      return options?.limit ? projects.slice(0, options.limit) : projects;
+    }
+    const projects = await getAllProjects();
+    return options?.limit ? projects.slice(0, options.limit) : projects;
+  },
+  findBySlug: getProjectBySlug,
+  findByCategory: getProjectsByCategory,
+  create: createProject,
+  update: updateProject,
+  delete: deleteProject,
+};

@@ -57,7 +57,7 @@ export function TechStackSection() {
   return (
     <section
       ref={marqueeRef}
-      className="py-16 bg-gradient-to-r from-deep-blue via-electric-blue to-purple relative overflow-hidden"
+      className="py-16 bg-gradient-to-r from-deep-blue via-electric-blue to-purple relative overflow-hidden w-full max-w-full"
     >
       <div className="container mx-auto px-4 md:px-8 mb-8">
         <motion.div

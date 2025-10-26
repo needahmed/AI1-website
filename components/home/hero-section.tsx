@@ -67,7 +67,7 @@ export function HeroSection() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.6, 0.05, 0.01, 0.9],
+        ease: [0.6, 0.05, 0.01, 0.9] as any,
       },
     },
   };
@@ -75,7 +75,7 @@ export function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-deep-blue via-electric-blue to-purple"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-deep-blue via-electric-blue to-purple w-full max-w-full"
     >
       {/* Animated background gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">

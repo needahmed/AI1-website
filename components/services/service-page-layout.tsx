@@ -50,7 +50,13 @@ export function ServicePageLayout({
       <ProcessTimeline steps={service.process} />
 
       {/* Technologies */}
-      <TechnologiesGrid technologies={service.technologies} />
+      <TechnologiesGrid 
+        technologies={service.technologies.map(tech => ({
+          name: tech.name,
+          iconName: tech.icon.displayName || tech.icon.name,
+          category: tech.category,
+        }))} 
+      />
 
       {/* Use Cases */}
       <UseCases useCases={service.useCases} />
@@ -59,7 +65,14 @@ export function ServicePageLayout({
       <ServiceTestimonials testimonials={service.testimonials} />
 
       {/* Related Services */}
-      <RelatedServices services={relatedServices} />
+      <RelatedServices 
+        services={relatedServices.map(s => ({
+          slug: s.slug,
+          title: s.title,
+          description: s.description,
+          iconName: s.icon.displayName || s.icon.name,
+        }))} 
+      />
 
       {/* CTA */}
       <ServiceCTA title={service.title} ctaText={service.ctaText} />

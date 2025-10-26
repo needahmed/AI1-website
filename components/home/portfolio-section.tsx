@@ -71,12 +71,12 @@ export function PortfolioSection() {
   }, [loading, projects]);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-muted/30 relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-muted/30 relative overflow-hidden w-full max-w-full">
       {/* Background parallax layers */}
-      <ParallaxLayer speed={-0.2} className="absolute inset-0 pointer-events-none">
+      <ParallaxLayer depth={1} className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-64 h-64 bg-electric-blue/10 rounded-full blur-3xl" />
       </ParallaxLayer>
-      <ParallaxLayer speed={-0.3} className="absolute inset-0 pointer-events-none">
+      <ParallaxLayer depth={2} className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple/10 rounded-full blur-3xl" />
       </ParallaxLayer>
 

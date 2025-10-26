@@ -132,7 +132,7 @@ export function TestimonialsSection() {
   };
 
   return (
-    <section ref={sectionRef} className="py-24 bg-background relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-background relative overflow-hidden w-full max-w-full">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-32 w-64 h-64 bg-cyan/10 rounded-full blur-3xl" />
