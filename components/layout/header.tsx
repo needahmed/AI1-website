@@ -23,11 +23,11 @@ import { ThemeToggle } from "./theme-toggle";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const services = [
-  { name: "AI Development", href: "/services/ai-development" },
-  { name: "Web Development", href: "/services/web-development" },
-  { name: "Mobile Apps", href: "/services/mobile-apps" },
-  { name: "Cloud Solutions", href: "/services/cloud-solutions" },
-  { name: "Consulting", href: "/services/consulting" },
+  { name: "Web & App Development", href: "/services/web-app-development" },
+  { name: "Game Development", href: "/services/game-development" },
+  { name: "AI Solutions & Automations", href: "/services/ai-solutions" },
+  { name: "SEO Services", href: "/services/seo-services" },
+  { name: "Branding & UI/UX", href: "/services/branding-uiux" },
 ];
 
 const navigationLinks = [
