@@ -1,0 +1,270 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Color System */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  /* AI1 Brand Colors */
+  --color-deep-blue: var(--deep-blue);
+  --color-electric-blue: var(--electric-blue);
+  --color-cyan: var(--cyan);
+  --color-teal: var(--teal);
+  --color-purple: var(--purple);
+  --color-purple-light: var(--purple-light);
+  
+  /* Charts */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Font Families */
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-sora);
+  
+  /* Border Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  
+  /* Spacing Scale */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  
+  /* Typography Scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+}
+
+:root {
+  --radius: 0.75rem;
+  
+  /* AI1 Brand Colors - Light Mode */
+  --deep-blue: #0A1929;
+  --electric-blue: #2563EB;
+  --cyan: #06B6D4;
+  --teal: #14B8A6;
+  --purple: #7C3AED;
+  --purple-light: #A78BFA;
+  
+  /* Base Colors - Light Mode */
+  --background: #FFFFFF;
+  --foreground: #0A1929;
+  --card: #FFFFFF;
+  --card-foreground: #0A1929;
+  --popover: #FFFFFF;
+  --popover-foreground: #0A1929;
+  
+  /* Semantic Colors - Light Mode */
+  --primary: #2563EB;
+  --primary-foreground: #FFFFFF;
+  --secondary: #06B6D4;
+  --secondary-foreground: #FFFFFF;
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+  --accent: #7C3AED;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  
+  /* UI Elements - Light Mode */
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #2563EB;
+  
+  /* Charts - AI1 Theme */
+  --chart-1: #2563EB;
+  --chart-2: #06B6D4;
+  --chart-3: #14B8A6;
+  --chart-4: #7C3AED;
+  --chart-5: #A78BFA;
+  
+  /* Sidebar - Light Mode */
+  --sidebar: #F8FAFC;
+  --sidebar-foreground: #0A1929;
+  --sidebar-primary: #2563EB;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F1F5F9;
+  --sidebar-accent-foreground: #0A1929;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #2563EB;
+}
+
+.dark {
+  /* AI1 Brand Colors - Dark Mode */
+  --deep-blue: #0F172A;
+  --electric-blue: #3B82F6;
+  --cyan: #22D3EE;
+  --teal: #2DD4BF;
+  --purple: #8B5CF6;
+  --purple-light: #C4B5FD;
+  
+  /* Base Colors - Dark Mode */
+  --background: #0A1929;
+  --foreground: #F1F5F9;
+  --card: #1E293B;
+  --card-foreground: #F1F5F9;
+  --popover: #1E293B;
+  --popover-foreground: #F1F5F9;
+  
+  /* Semantic Colors - Dark Mode */
+  --primary: #3B82F6;
+  --primary-foreground: #FFFFFF;
+  --secondary: #22D3EE;
+  --secondary-foreground: #0A1929;
+  --muted: #1E293B;
+  --muted-foreground: #94A3B8;
+  --accent: #8B5CF6;
+  --accent-foreground: #FFFFFF;
+  --destructive: #F87171;
+  
+  /* UI Elements - Dark Mode */
+  --border: #334155;
+  --input: #334155;
+  --ring: #3B82F6;
+  
+  /* Charts - AI1 Theme (Dark) */
+  --chart-1: #3B82F6;
+  --chart-2: #22D3EE;
+  --chart-3: #2DD4BF;
+  --chart-4: #8B5CF6;
+  --chart-5: #C4B5FD;
+  
+  /* Sidebar - Dark Mode */
+  --sidebar: #0F172A;
+  --sidebar-foreground: #F1F5F9;
+  --sidebar-primary: #3B82F6;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #1E293B;
+  --sidebar-accent-foreground: #F1F5F9;
+  --sidebar-border: #334155;
+  --sidebar-ring: #3B82F6;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism Utilities */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .glass-dark {
+    background: rgba(10, 25, 41, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Gradient Utilities */
+  .gradient-ai1 {
+    background: linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #06B6D4 100%);
+  }
+  
+  .gradient-electric {
+    background: linear-gradient(90deg, #2563EB 0%, #06B6D4 100%);
+  }
+  
+  .gradient-purple {
+    background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #06B6D4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Shadow Utilities - AI1 Theme */
+  .shadow-ai1 {
+    box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.2);
+  }
+  
+  .shadow-ai1-lg {
+    box-shadow: 0 10px 40px 0 rgba(37, 99, 235, 0.25);
+  }
+  
+  .shadow-electric {
+    box-shadow: 0 4px 14px 0 rgba(6, 182, 212, 0.3);
+  }
+  
+  .shadow-purple {
+    box-shadow: 0 4px 14px 0 rgba(124, 58, 237, 0.3);
+  }
+  
+  /* Glow Effects */
+  .glow-ai1 {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+  }
+  
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+  }
+  
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+  }
+}
