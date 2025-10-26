@@ -8,7 +8,7 @@ import Link from "next/link";
 import { getAllServices } from "@/lib/data/services";
 
 export const metadata: Metadata = {
-  title: "Our Services | AI1",
+  title: "Our Services",
   description:
     "Comprehensive digital solutions including web & app development, game development, AI solutions, SEO services, and branding & UI/UX design.",
   keywords: [
@@ -21,11 +21,21 @@ export const metadata: Metadata = {
     "branding",
     "UI/UX design",
   ],
+  alternates: {
+    canonical: "/services",
+  },
   openGraph: {
     title: "Our Services | AI1",
     description:
       "Comprehensive digital solutions including web & app development, game development, AI solutions, SEO services, and branding & UI/UX design.",
     type: "website",
+    url: "/services",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Services | AI1",
+    description:
+      "Comprehensive digital solutions including web & app development, game development, AI solutions, SEO services, and branding & UI/UX design.",
   },
 };
 

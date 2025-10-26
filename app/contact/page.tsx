@@ -17,11 +17,21 @@ export const metadata: Metadata = {
     "AI solutions contact",
     "get a quote",
   ],
+  alternates: {
+    canonical: "/contact",
+  },
   openGraph: {
     title: "Contact Us - Get in Touch with AI1",
     description:
       "Ready to start your project? Contact AI1 today and get a response within 6 hours.",
     type: "website",
+    url: "/contact",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Us - Get in Touch with AI1",
+    description:
+      "Ready to start your project? Contact AI1 today and get a response within 6 hours.",
   },
 };
 

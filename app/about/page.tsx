@@ -33,14 +33,24 @@ import { ParallaxContainer } from "@/components/animation";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const metadata: Metadata = {
-  title: "About Us | AI1 - AI-First All-in-One Solutions",
+  title: "About Us - AI-First All-in-One Solutions",
   description:
     "Learn about AI1's mission to empower businesses with AI-first solutions. Meet our team, explore our values, and discover what makes us different.",
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
     title: "About Us | AI1",
     description:
       "AI-first all-in-one platform built by a global team of experts.",
     type: "website",
+    url: "/about",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | AI1",
+    description:
+      "AI-first all-in-one platform built by a global team of experts.",
   },
 };
 

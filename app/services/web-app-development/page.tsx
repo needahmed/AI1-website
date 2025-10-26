@@ -14,10 +14,14 @@ export async function generateMetadata(): Promise<Metadata> {
     title: service.seo.title,
     description: service.seo.description,
     keywords: service.seo.keywords,
+    alternates: {
+      canonical: `/services/${SERVICE_SLUG}`,
+    },
     openGraph: {
       title: service.seo.title,
       description: service.seo.description,
       type: "website",
+      url: `/services/${SERVICE_SLUG}`,
     },
     twitter: {
       card: "summary_large_image",
