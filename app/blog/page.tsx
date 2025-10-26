@@ -17,11 +17,21 @@ export const metadata: Metadata = {
   title: "Blog - AI1 Design System",
   description:
     "Explore articles on web development, AI, game development, SEO, and industry insights.",
+  alternates: {
+    canonical: "/blog",
+  },
   openGraph: {
     title: "Blog - AI1 Design System",
     description:
       "Explore articles on web development, AI, game development, SEO, and industry insights.",
     type: "website",
+    url: "/blog",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog - AI1 Design System",
+    description:
+      "Explore articles on web development, AI, game development, SEO, and industry insights.",
   },
 };
 

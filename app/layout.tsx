@@ -7,6 +7,8 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Header, Footer, FloatingCTA, PageTransition } from "@/components/layout";
 import { Toaster } from "@/components/ui/sonner";
 import { ChatbotWidget, ChatConsentBanner } from "@/components/chat";
+import { GoogleAnalytics, ConsentBanner } from "@/components/analytics";
+import { OrganizationSchema, WebSiteSchema } from "@/components/seo";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,7 +22,10 @@ const sora = Sora({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "AI1 - AI-Powered Solutions",
     template: "%s | AI1",
@@ -34,17 +39,33 @@ export const metadata: Metadata = {
     "Web Development",
     "Mobile Apps",
     "Cloud Solutions",
+    "SEO Services",
+    "Game Development",
+    "UI/UX Design",
+    "Branding",
   ],
   authors: [{ name: "AI1" }],
   creator: "AI1",
+  publisher: "AI1",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ai1.com",
+    url: siteUrl,
     title: "AI1 - AI-Powered Solutions",
     description:
       "Leading the future of AI-powered solutions. We help businesses transform through cutting-edge technology and innovative strategies.",
     siteName: "AI1",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "AI1 - AI-Powered Solutions",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -52,10 +73,21 @@ export const metadata: Metadata = {
     description:
       "Leading the future of AI-powered solutions. We help businesses transform through cutting-edge technology and innovative strategies.",
     creator: "@ai1",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
 };
 
@@ -66,7 +98,39 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
+      <head>
+        <OrganizationSchema
+          name="AI1"
+          url={siteUrl}
+          logo={`${siteUrl}/logo.png`}
+          description="Leading the future of AI-powered solutions. We help businesses transform through cutting-edge technology and innovative strategies."
+          sameAs={[
+            "https://twitter.com/ai1",
+            "https://linkedin.com/company/ai1",
+            "https://github.com/ai1",
+          ]}
+          contactPoint={{
+            contactType: "Customer Service",
+            email: "contact@ai1.com",
+          }}
+        />
+        <WebSiteSchema
+          name="AI1"
+          url={siteUrl}
+          description="Leading the future of AI-powered solutions."
+          searchAction={{
+            target: `${siteUrl}/blog?search={search_term_string}`,
+            queryInput: "required name=search_term_string",
+          }}
+        />
+      </head>
       <body className={`${inter.variable} ${sora.variable} antialiased overflow-x-hidden`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:top-4 focus:left-4 focus:p-4 focus:bg-background focus:border-2 focus:border-foreground focus:rounded"
+        >
+          Skip to main content
+        </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -77,7 +141,9 @@ export default function RootLayout({
             <ParallaxWrapper>
               <Header />
               <PageTransition>
-                <main className="pt-16">{children}</main>
+                <main id="main-content" className="pt-16">
+                  {children}
+                </main>
               </PageTransition>
               <Footer />
               <FloatingCTA />
@@ -86,6 +152,8 @@ export default function RootLayout({
           <Toaster />
           <ChatbotWidget />
           <ChatConsentBanner />
+          <ConsentBanner />
+          <GoogleAnalytics />
         </ThemeProvider>
       </body>
     </html>

@@ -49,12 +49,16 @@ export async function generateMetadata({
   return {
     title: seoMeta?.title || post.title,
     description: seoMeta?.description || post.excerpt,
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
     openGraph: {
       title: seoMeta?.ogTitle || post.title,
       description: seoMeta?.ogDescription || post.excerpt,
       type: "article",
       publishedTime: post.publishedAt?.toISOString(),
       authors: [post.author],
+      url: `/blog/${slug}`,
       images: post.featuredImage
         ? [
             {

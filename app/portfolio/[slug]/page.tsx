@@ -31,9 +31,13 @@ export async function generateMetadata({
     return {
       title: `${project.title} - Portfolio Case Study`,
       description: project.description,
+      alternates: {
+        canonical: `/portfolio/${resolvedParams.slug}`,
+      },
       openGraph: {
         title: project.title,
         description: project.description,
+        url: `/portfolio/${resolvedParams.slug}`,
         images: project.ogImage
           ? [{ url: project.ogImage }]
           : project.images.length > 0
