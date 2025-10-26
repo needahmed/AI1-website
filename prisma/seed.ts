@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
@@ -406,12 +407,14 @@ Learn optimization techniques for smooth browser performance...
 
   // Seed Admin Users
   console.log("👤 Seeding admin users...");
+  const adminPasswordHash = await bcrypt.hash("admin123", 10);
+  const editorPasswordHash = await bcrypt.hash("editor123", 10);
+  
   const adminUsers = await Promise.all([
     prisma.adminUser.create({
       data: {
         email: "admin@example.com",
-        passwordHash:
-          "$2a$10$examplehashthiswouldbearealhashinproduction123456",
+        passwordHash: adminPasswordHash,
         name: "Super Admin",
         role: "SUPER_ADMIN",
         lastLogin: new Date(),
@@ -420,8 +423,7 @@ Learn optimization techniques for smooth browser performance...
     prisma.adminUser.create({
       data: {
         email: "editor@example.com",
-        passwordHash:
-          "$2a$10$examplehashthiswouldbearealhashinproduction789012",
+        passwordHash: editorPasswordHash,
         name: "Content Editor",
         role: "EDITOR",
         lastLogin: new Date("2024-02-15"),
@@ -429,6 +431,9 @@ Learn optimization techniques for smooth browser performance...
     }),
   ]);
   console.log(`✅ Created ${adminUsers.length} admin users`);
+  console.log("   Default credentials:");
+  console.log("   - admin@example.com / admin123 (Super Admin)");
+  console.log("   - editor@example.com / editor123 (Editor)");
 
   // Seed Newsletter Subscribers
   console.log("📨 Seeding newsletter subscribers...");
@@ -437,24 +442,28 @@ Learn optimization techniques for smooth browser performance...
       data: {
         email: "subscriber1@example.com",
         source: "homepage",
+        status: "ACTIVE",
       },
     }),
     prisma.newsletterSubscriber.create({
       data: {
         email: "subscriber2@example.com",
         source: "blog",
+        status: "ACTIVE",
       },
     }),
     prisma.newsletterSubscriber.create({
       data: {
         email: "subscriber3@example.com",
         source: "footer",
+        status: "ACTIVE",
       },
     }),
     prisma.newsletterSubscriber.create({
       data: {
         email: "subscriber4@example.com",
         source: "homepage",
+        status: "UNSUBSCRIBED",
       },
     }),
   ]);
