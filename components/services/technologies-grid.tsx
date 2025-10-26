@@ -1,10 +1,16 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import type { Technology } from "@/lib/data/services";
+import * as LucideIcons from "lucide-react";
+
+interface TechnologyWithStringIcon {
+  name: string;
+  iconName: string;
+  category: string;
+}
 
 interface TechnologiesGridProps {
-  technologies: Technology[];
+  technologies: TechnologyWithStringIcon[];
 }
 
 export function TechnologiesGrid({ technologies }: TechnologiesGridProps) {
@@ -108,7 +114,7 @@ export function TechnologiesGrid({ technologies }: TechnologiesGridProps) {
           style={{ perspective: "1000px" }}
         >
           {technologies.map((tech, index) => {
-            const Icon = tech.icon;
+            const Icon = (LucideIcons as any)[tech.iconName] || LucideIcons.Box;
             
             return (
               <div

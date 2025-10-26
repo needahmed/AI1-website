@@ -45,7 +45,7 @@ export function ClosingCTASection() {
   return (
     <section
       ref={sectionRef}
-      className="py-32 bg-gradient-to-br from-deep-blue via-electric-blue to-purple relative overflow-hidden"
+      className="py-32 bg-gradient-to-br from-deep-blue via-electric-blue to-purple relative overflow-hidden w-full max-w-full"
     >
       {/* Animated background */}
       <div className="absolute inset-0">

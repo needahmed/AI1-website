@@ -197,12 +197,12 @@ export async function createBlogPost(input: CreateBlogPostInput) {
     });
     
     // Revalidate caches
-    revalidateTag(BLOG_CACHE_TAGS.all);
+    revalidateTag(BLOG_CACHE_TAGS.all, "default");
     if (post.publishedAt && post.publishedAt <= new Date()) {
-      revalidateTag(BLOG_CACHE_TAGS.published);
+      revalidateTag(BLOG_CACHE_TAGS.published, "default");
     }
     post.categories.forEach((category) => {
-      revalidateTag(BLOG_CACHE_TAGS.byCategory(category));
+      revalidateTag(BLOG_CACHE_TAGS.byCategory(category), "default");
     });
     revalidatePath("/blog");
     
@@ -239,16 +239,16 @@ export async function updateBlogPost(slug: string, input: UpdateBlogPostInput) {
     });
     
     // Revalidate caches
-    revalidateTag(BLOG_CACHE_TAGS.all);
-    revalidateTag(BLOG_CACHE_TAGS.bySlug(slug));
-    revalidateTag(BLOG_CACHE_TAGS.published);
+    revalidateTag(BLOG_CACHE_TAGS.all, "default");
+    revalidateTag(BLOG_CACHE_TAGS.bySlug(slug), "default");
+    revalidateTag(BLOG_CACHE_TAGS.published, "default");
     
     // Revalidate categories
     existingPost.categories.forEach((category) => {
-      revalidateTag(BLOG_CACHE_TAGS.byCategory(category));
+      revalidateTag(BLOG_CACHE_TAGS.byCategory(category), "default");
     });
     post.categories.forEach((category) => {
-      revalidateTag(BLOG_CACHE_TAGS.byCategory(category));
+      revalidateTag(BLOG_CACHE_TAGS.byCategory(category), "default");
     });
     
     revalidatePath("/blog");
@@ -277,11 +277,11 @@ export async function deleteBlogPost(slug: string) {
     });
     
     // Revalidate caches
-    revalidateTag(BLOG_CACHE_TAGS.all);
-    revalidateTag(BLOG_CACHE_TAGS.bySlug(slug));
-    revalidateTag(BLOG_CACHE_TAGS.published);
+    revalidateTag(BLOG_CACHE_TAGS.all, "default");
+    revalidateTag(BLOG_CACHE_TAGS.bySlug(slug), "default");
+    revalidateTag(BLOG_CACHE_TAGS.published, "default");
     post.categories.forEach((category) => {
-      revalidateTag(BLOG_CACHE_TAGS.byCategory(category));
+      revalidateTag(BLOG_CACHE_TAGS.byCategory(category), "default");
     });
     revalidatePath("/blog");
     

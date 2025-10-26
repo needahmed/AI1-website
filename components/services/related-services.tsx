@@ -4,11 +4,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MotionSection, MotionItem } from "@/components/animation";
 import { ArrowRight } from "lucide-react";
+import * as LucideIcons from "lucide-react";
 import Link from "next/link";
-import type { Service } from "@/lib/data/services";
+
+interface ServiceWithStringIcon {
+  slug: string;
+  title: string;
+  description: string;
+  iconName: string;
+}
 
 interface RelatedServicesProps {
-  services: Service[];
+  services: ServiceWithStringIcon[];
 }
 
 export function RelatedServices({ services }: RelatedServicesProps) {
@@ -29,7 +36,7 @@ export function RelatedServices({ services }: RelatedServicesProps) {
         <MotionSection variant="slideUp" stagger={0.15}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => {
-              const Icon = service.icon;
+              const Icon = (LucideIcons as any)[service.iconName] || LucideIcons.Box;
               
               return (
                 <MotionItem key={index}>
