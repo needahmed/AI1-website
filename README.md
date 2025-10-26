@@ -12,6 +12,7 @@ A modern full-stack Next.js 16 application with TypeScript, Tailwind CSS, Prisma
 - **Validation:** Zod
 - **Email:** @react-email/components
 - **Theme:** next-themes for dark mode
+- **Animation:** GSAP, ScrollTrigger, Framer Motion, Lenis, react-scroll-parallax
 - **Code Quality:** ESLint, Prettier, Husky, lint-staged
 
 ## Getting Started
@@ -131,6 +132,18 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the a
 - Dark mode using class strategy
 - CSS reset included
 - Utility classes for consistent styling
+
+### Animation Stack
+
+- **Smooth Scrolling:** Global Lenis integration with momentum-based scrolling
+- **GSAP & ScrollTrigger:** Advanced scroll-driven animations with SSR safety
+- **Framer Motion:** React-first animations with intersection observers
+- **Parallax Effects:** Multi-layer parallax scrolling
+- **Reusable Hooks:** `useScrollTrigger`, `useGSAPTimeline`, `useGSAPStagger`
+- **Pre-built Components:** `MotionSection`, `ParallaxContainer`, `ParallaxLayer`
+- **Demo Playground:** Visit `/playground` to see all animations in action
+
+See [ANIMATION_GUIDE.md](./ANIMATION_GUIDE.md) for complete documentation.
 
 ### Code Quality
 
