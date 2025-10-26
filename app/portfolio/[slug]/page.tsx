@@ -8,10 +8,17 @@ interface ProjectPageProps {
 }
 
 export async function generateStaticParams() {
-  const projects = await getAllProjects();
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
+  try {
+    const projects = await getAllProjects();
+    return projects.map((project) => ({
+      slug: project.slug,
+    }));
+  } catch (error) {
+    // If database is not available during build, return empty array
+    // Pages will be generated on-demand
+    console.warn("Database not available for static generation:", error);
+    return [];
+  }
 }
 
 export async function generateMetadata({

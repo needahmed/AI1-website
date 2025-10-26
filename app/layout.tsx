@@ -5,6 +5,8 @@ import { SmoothScrollProvider } from "@/components/animation";
 import { ParallaxWrapper } from "@/components/animation";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Header, Footer, FloatingCTA, PageTransition } from "@/components/layout";
+import { Toaster } from "@/components/ui/sonner";
+import { ChatbotWidget, ChatConsentBanner } from "@/components/chat";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -81,6 +83,9 @@ export default function RootLayout({
               <FloatingCTA />
             </ParallaxWrapper>
           </SmoothScrollProvider>
+          <Toaster />
+          <ChatbotWidget />
+          <ChatConsentBanner />
         </ThemeProvider>
       </body>
     </html>
