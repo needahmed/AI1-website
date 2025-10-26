@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
 import "./globals.css";
+import { SmoothScrollProvider } from "@/components/animation";
+import { ParallaxWrapper } from "@/components/animation";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -29,7 +31,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${sora.variable} antialiased`}
       >
-        {children}
+        <SmoothScrollProvider>
+          <ParallaxWrapper>
+            {children}
+          </ParallaxWrapper>
+        </SmoothScrollProvider>
       </body>
     </html>
   );
