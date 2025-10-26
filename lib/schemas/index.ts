@@ -30,6 +30,9 @@ export const createProjectSchema = z.object({
     .string()
     .min(1, "Description is required")
     .max(5000, "Description is too long"),
+  overview: z.string().max(5000, "Overview is too long").optional(),
+  challenges: z.string().max(5000, "Challenges text is too long").optional(),
+  solutions: z.string().max(5000, "Solutions text is too long").optional(),
   category: projectCategorySchema,
   technologies: z
     .array(z.string())
@@ -38,7 +41,26 @@ export const createProjectSchema = z.object({
   images: z.array(z.string().url("Invalid image URL")).max(20, "Too many images"),
   client: z.string().max(200, "Client name is too long").optional(),
   results: z.string().max(2000, "Results text is too long").optional(),
-  featured: z.boolean().optional().default(false),
+  metrics: z
+    .array(
+      z.object({
+        label: z.string(),
+        value: z.string(),
+        description: z.string().optional(),
+      }),
+    )
+    .max(10, "Too many metrics")
+    .optional(),
+  testimonial: z
+    .object({
+      text: z.string(),
+      author: z.string(),
+      role: z.string(),
+      company: z.string().optional(),
+    })
+    .optional(),
+  ogImage: z.string().url("Invalid OG image URL").optional(),
+  featured: z.boolean().optional(),
 });
 
 export const updateProjectSchema = createProjectSchema.partial();

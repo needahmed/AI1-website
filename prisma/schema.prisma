@@ -67,11 +67,17 @@ model Project {
   slug         String          @unique
   title        String
   description  String
+  overview     String?
+  challenges   String?
+  solutions    String?
   category     ProjectCategory
   technologies String[]
   images       String[]
   client       String?
   results      String?
+  metrics      Json?
+  testimonial  Json?
+  ogImage      String?
   featured     Boolean         @default(false)
   createdAt    DateTime        @default(now())
   updatedAt    DateTime        @updatedAt
