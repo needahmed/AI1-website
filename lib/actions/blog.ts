@@ -13,11 +13,13 @@ import type { ApiResponse } from "@/lib/types";
 /**
  * Server action to get all published blog posts
  */
-export async function getPublishedBlogPostsAction(
-  limit?: number,
-): Promise<ApiResponse<Awaited<ReturnType<typeof getPublishedBlogPosts>>>> {
+export async function getPublishedBlogPostsAction(options?: {
+  page?: number;
+  limit?: number;
+  category?: PostCategory;
+}): Promise<ApiResponse<Awaited<ReturnType<typeof getPublishedBlogPosts>>>> {
   try {
-    const posts = await getPublishedBlogPosts(limit);
+    const posts = await getPublishedBlogPosts(options);
     return {
       success: true,
       data: posts,

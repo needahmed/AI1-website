@@ -66,13 +66,18 @@ export const createBlogPostSchema = z.object({
     .string()
     .min(1, "Author is required")
     .max(100, "Author name is too long"),
+  authorBio: z.string().max(500, "Author bio is too long").optional(),
+  authorImage: z.string().url("Invalid image URL").optional(),
   categories: z
     .array(postCategorySchema)
     .min(1, "At least one category is required")
     .max(5, "Too many categories"),
+  tags: z.array(z.string()).max(10, "Too many tags").optional().default([]),
   publishedAt: z.coerce.date().optional(),
+  featured: z.boolean().optional().default(false),
   featuredImage: z.string().url("Invalid image URL").optional(),
   seoMeta: z.record(z.string(), z.any()).optional(),
+  readingTime: z.number().int().positive().optional(),
 });
 
 export const updateBlogPostSchema = createBlogPostSchema.partial();

@@ -22,26 +22,51 @@ export const BLOG_CACHE_TAGS = {
 } as const;
 
 /**
- * Get all published blog posts with optional limit
+ * Get all published blog posts with pagination
  */
-export async function getPublishedBlogPosts(limit?: number) {
+export async function getPublishedBlogPosts(options?: {
+  page?: number;
+  limit?: number;
+  category?: PostCategory;
+}) {
   try {
-    logger.debug("Fetching published blog posts", { limit });
+    const page = options?.page ?? 1;
+    const limit = options?.limit ?? 10;
+    const skip = (page - 1) * limit;
     
-    const posts = await prisma.blogPost.findMany({
-      where: {
-        publishedAt: {
-          lte: new Date(),
+    logger.debug("Fetching published blog posts", { page, limit, category: options?.category });
+    
+    const where = {
+      publishedAt: {
+        lte: new Date(),
+      },
+      ...(options?.category && {
+        categories: {
+          has: options.category,
         },
-      },
-      orderBy: {
-        publishedAt: "desc",
-      },
-      take: limit,
-    });
+      }),
+    };
     
-    logger.info(`Fetched ${posts.length} published blog posts`);
-    return posts;
+    const [posts, total] = await Promise.all([
+      prisma.blogPost.findMany({
+        where,
+        orderBy: {
+          publishedAt: "desc",
+        },
+        take: limit,
+        skip,
+      }),
+      prisma.blogPost.count({ where }),
+    ]);
+    
+    logger.info(`Fetched ${posts.length} of ${total} published blog posts`);
+    return {
+      posts,
+      total,
+      page,
+      limit,
+      totalPages: Math.ceil(total / limit),
+    };
   } catch (error) {
     logger.error("Error fetching published blog posts", error);
     throw handlePrismaError(error);
@@ -132,6 +157,85 @@ export async function getBlogPostsByCategory(category: PostCategory) {
     return posts;
   } catch (error) {
     logger.error("Error fetching blog posts by category", error, { category });
+    throw handlePrismaError(error);
+  }
+}
+
+/**
+ * Get featured blog post
+ */
+export async function getFeaturedBlogPost() {
+  try {
+    logger.debug("Fetching featured blog post");
+    
+    const post = await prisma.blogPost.findFirst({
+      where: {
+        featured: true,
+        publishedAt: {
+          lte: new Date(),
+        },
+      },
+      orderBy: {
+        publishedAt: "desc",
+      },
+    });
+    
+    if (post) {
+      logger.info("Fetched featured blog post", { slug: post.slug });
+    }
+    return post;
+  } catch (error) {
+    logger.error("Error fetching featured blog post", error);
+    throw handlePrismaError(error);
+  }
+}
+
+/**
+ * Get related blog posts based on categories and tags
+ */
+export async function getRelatedBlogPosts(slug: string, limit: number = 3) {
+  try {
+    logger.debug("Fetching related blog posts", { slug, limit });
+    
+    const currentPost = await prisma.blogPost.findUnique({
+      where: { slug },
+    });
+    
+    if (!currentPost) {
+      return [];
+    }
+    
+    const relatedPosts = await prisma.blogPost.findMany({
+      where: {
+        slug: {
+          not: slug,
+        },
+        publishedAt: {
+          lte: new Date(),
+        },
+        OR: [
+          {
+            categories: {
+              hasSome: currentPost.categories,
+            },
+          },
+          {
+            tags: {
+              hasSome: currentPost.tags,
+            },
+          },
+        ],
+      },
+      orderBy: {
+        publishedAt: "desc",
+      },
+      take: limit,
+    });
+    
+    logger.info(`Fetched ${relatedPosts.length} related blog posts`);
+    return relatedPosts;
+  } catch (error) {
+    logger.error("Error fetching related blog posts", error, { slug });
     throw handlePrismaError(error);
   }
 }
