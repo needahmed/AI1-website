@@ -130,7 +130,10 @@ export async function createProject(input: CreateProjectInput) {
     const validatedData = createProjectSchema.parse(input);
     
     const project = await prisma.project.create({
-      data: validatedData,
+      data: {
+        ...validatedData,
+        featured: validatedData.featured ?? false,
+      },
     });
     
     // Revalidate caches
@@ -140,6 +143,7 @@ export async function createProject(input: CreateProjectInput) {
     }
     revalidateTag(PROJECT_CACHE_TAGS.byCategory(project.category), "default");
     revalidatePath("/projects");
+    revalidatePath("/portfolio");
     
     logger.info("Created project", { id: project.id, slug: project.slug });
     return project;
@@ -190,6 +194,8 @@ export async function updateProject(slug: string, input: UpdateProjectInput) {
     
     revalidatePath("/projects");
     revalidatePath(`/projects/${slug}`);
+    revalidatePath("/portfolio");
+    revalidatePath(`/portfolio/${slug}`);
     
     logger.info("Updated project", { id: project.id, slug });
     return project;
@@ -221,6 +227,8 @@ export async function deleteProject(slug: string) {
     }
     revalidateTag(PROJECT_CACHE_TAGS.byCategory(project.category), "default");
     revalidatePath("/projects");
+    revalidatePath("/portfolio");
+    revalidatePath(`/portfolio/${slug}`);
     
     logger.info("Deleted project", { slug });
     return project;
