@@ -1,15 +1,139 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// Prisma schema for MongoDB
+// Documentation: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
 }
 
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
+}
+
+// Enums
+enum ProjectCategory {
+  WEB_DEVELOPMENT
+  MOBILE_APP
+  ECOMMERCE
+  BRANDING
+  UI_UX_DESIGN
+  OTHER
+}
+
+enum PostCategory {
+  TECH
+  DESIGN
+  BUSINESS
+  TUTORIAL
+  NEWS
+  OTHER
+}
+
+enum ProjectType {
+  WEB_DEVELOPMENT
+  MOBILE_APP
+  ECOMMERCE
+  BRANDING
+  CONSULTATION
+  OTHER
+}
+
+enum BudgetRange {
+  UNDER_5K
+  RANGE_5K_10K
+  RANGE_10K_25K
+  RANGE_25K_50K
+  ABOVE_50K
+}
+
+enum SubmissionStatus {
+  PENDING
+  CONTACTED
+  IN_PROGRESS
+  COMPLETED
+  ARCHIVED
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+  EDITOR
+}
+
+// Models
+model Project {
+  id           String          @id @default(auto()) @map("_id") @db.ObjectId
+  slug         String          @unique
+  title        String
+  description  String
+  category     ProjectCategory
+  technologies String[]
+  images       String[]
+  client       String?
+  results      String?
+  featured     Boolean         @default(false)
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  @@index([category])
+  @@index([featured])
+  @@index([createdAt])
+}
+
+model BlogPost {
+  id             String         @id @default(auto()) @map("_id") @db.ObjectId
+  slug           String         @unique
+  title          String
+  excerpt        String
+  content        String
+  author         String
+  categories     PostCategory[]
+  publishedAt    DateTime?
+  featuredImage  String?
+  seoMeta        Json?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  @@index([publishedAt])
+  @@index([createdAt])
+}
+
+model ContactSubmission {
+  id          String           @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  email       String
+  phone       String?
+  company     String?
+  projectType ProjectType
+  budgetRange BudgetRange
+  message     String
+  status      SubmissionStatus @default(PENDING)
+  createdAt   DateTime         @default(now())
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([email])
+}
+
+model AdminUser {
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         AdminRole
+  lastLogin    DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([role])
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
+  source    String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
 }

@@ -18,7 +18,7 @@ const variants = {
     y: 0,
     transition: {
       duration: 0.4,
-      ease: "easeOut",
+      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
     },
   },
   exit: {
@@ -26,7 +26,7 @@ const variants = {
     y: -20,
     transition: {
       duration: 0.3,
-      ease: "easeIn",
+      ease: [0.42, 0, 1, 1] as [number, number, number, number],
     },
   },
 };
