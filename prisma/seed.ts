@@ -150,15 +150,20 @@ npx create-next-app@latest my-app
 Then navigate to your project and start the development server...
         `,
         author: "Jane Developer",
-        categories: ["TECH", "TUTORIAL"],
+        authorBio: "Full-stack developer and technical writer with 10+ years of experience.",
+        authorImage: "https://api.dicebear.com/7.x/avataaars/svg?seed=Jane",
+        categories: ["WEB_DEVELOPMENT"],
+        tags: ["nextjs", "react", "tutorial"],
         publishedAt: new Date("2024-01-15"),
-        featuredImage: "/blog/nextjs-guide.jpg",
+        featured: true,
+        featuredImage: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=630&fit=crop",
         seoMeta: {
           title: "Getting Started with Next.js 16: A Complete Guide",
           description:
             "Complete guide to building modern web applications with Next.js 16",
           keywords: ["Next.js", "React", "Web Development", "Tutorial"],
         },
+        readingTime: 8,
       },
     }),
     prisma.blogPost.create({
@@ -182,15 +187,20 @@ A well-designed design system can significantly improve development velocity...
 Learn how to implement these principles in your organization...
         `,
         author: "John Designer",
-        categories: ["DESIGN", "BUSINESS"],
+        authorBio: "UX/UI designer specializing in design systems and component libraries.",
+        authorImage: "https://api.dicebear.com/7.x/avataaars/svg?seed=John",
+        categories: ["WEB_DEVELOPMENT"],
+        tags: ["design-systems", "ui-ux", "best-practices"],
         publishedAt: new Date("2024-01-20"),
-        featuredImage: "/blog/design-systems.jpg",
+        featured: false,
+        featuredImage: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=630&fit=crop",
         seoMeta: {
           title: "Building Scalable Design Systems: Best Practices",
           description:
             "Learn best practices for creating maintainable design systems",
           keywords: ["Design Systems", "UI/UX", "Design", "Best Practices"],
         },
+        readingTime: 6,
       },
     }),
     prisma.blogPost.create({
@@ -219,15 +229,20 @@ Running a production MongoDB database with Prisma requires careful consideration
 Learn more about production-ready MongoDB setups...
         `,
         author: "Alex Backend",
-        categories: ["TECH", "TUTORIAL"],
+        authorBio: "Backend engineer with expertise in database optimization and scalability.",
+        authorImage: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+        categories: ["WEB_DEVELOPMENT"],
+        tags: ["mongodb", "prisma", "database", "production"],
         publishedAt: new Date("2024-02-01"),
-        featuredImage: "/blog/mongodb-prisma.jpg",
+        featured: false,
+        featuredImage: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop",
         seoMeta: {
           title: "MongoDB with Prisma: Production-Ready Tips",
           description:
             "Essential tips for running MongoDB with Prisma in production",
           keywords: ["MongoDB", "Prisma", "Database", "Production"],
         },
+        readingTime: 7,
       },
     }),
     prisma.blogPost.create({
@@ -252,14 +267,95 @@ The web development landscape is constantly evolving...
 Stay ahead of the curve with these insights...
         `,
         author: "Sarah Tech",
-        categories: ["TECH", "NEWS"],
+        authorBio: "Technology analyst and blogger covering web development trends.",
+        authorImage: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+        categories: ["INDUSTRY_INSIGHTS", "AI"],
+        tags: ["trends", "web-development", "2024", "ai"],
         publishedAt: new Date("2024-02-10"),
-        featuredImage: "/blog/2024-trends.jpg",
+        featured: false,
+        featuredImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&h=630&fit=crop",
         seoMeta: {
           title: "Top Web Development Trends to Watch in 2024",
           description: "Emerging trends shaping web development in 2024",
           keywords: ["Web Development", "Trends", "2024", "Technology"],
         },
+        readingTime: 5,
+      },
+    }),
+    prisma.blogPost.create({
+      data: {
+        slug: "ai-for-seo-optimization",
+        title: "Using AI for Advanced SEO Optimization",
+        excerpt:
+          "Discover how artificial intelligence can revolutionize your SEO strategy with automated insights and optimization.",
+        content: `
+# AI for SEO Optimization
+
+AI is transforming how we approach SEO...
+
+## Key Benefits
+
+- Automated keyword research
+- Content optimization
+- Competitor analysis
+- Technical SEO audits
+
+## Implementation
+
+Learn how to integrate AI tools into your SEO workflow...
+        `,
+        author: "Emma Digital",
+        authorBio: "Digital marketing expert specializing in AI-powered SEO strategies.",
+        authorImage: "https://api.dicebear.com/7.x/avataaars/svg?seed=Emma",
+        categories: ["AI", "SEO"],
+        tags: ["ai", "seo", "automation", "optimization"],
+        publishedAt: new Date("2024-02-15"),
+        featured: false,
+        featuredImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630&fit=crop",
+        seoMeta: {
+          title: "Using AI for Advanced SEO Optimization",
+          description: "How AI can revolutionize your SEO strategy",
+          keywords: ["AI", "SEO", "Automation", "Digital Marketing"],
+        },
+        readingTime: 6,
+      },
+    }),
+    prisma.blogPost.create({
+      data: {
+        slug: "unity-webgl-games",
+        title: "Building Browser Games with Unity and WebGL",
+        excerpt:
+          "A comprehensive guide to creating and optimizing browser-based games using Unity and WebGL technology.",
+        content: `
+# Unity WebGL Games
+
+Unity's WebGL support allows you to publish games directly to the browser...
+
+## Getting Started
+
+1. Set up Unity for WebGL
+2. Optimize assets
+3. Handle browser compatibility
+4. Deploy and test
+
+## Best Practices
+
+Learn optimization techniques for smooth browser performance...
+        `,
+        author: "Ryan GameDev",
+        authorBio: "Indie game developer creating browser-based experiences.",
+        authorImage: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ryan",
+        categories: ["GAME_DEV"],
+        tags: ["unity", "webgl", "game-development", "browser-games"],
+        publishedAt: new Date("2024-02-18"),
+        featured: false,
+        featuredImage: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=630&fit=crop",
+        seoMeta: {
+          title: "Building Browser Games with Unity and WebGL",
+          description: "Complete guide to Unity WebGL game development",
+          keywords: ["Unity", "WebGL", "Game Development", "Browser Games"],
+        },
+        readingTime: 9,
       },
     }),
   ]);
