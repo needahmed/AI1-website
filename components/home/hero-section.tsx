@@ -86,7 +86,7 @@ export function HeroSection() {
       {/* Content */}
       <motion.div
         ref={contentRef}
-        className="relative z-10 container mx-auto px-6 sm:px-10 lg:px-16 text-center"
+        className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 text-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -125,7 +125,8 @@ export function HeroSection() {
         {/* Subtitle */}
         <motion.p
           variants={itemVariants}
-          className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-12 leading-relaxed"
+          className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-12 leading-relaxed block w-full"
+          style={{ display: "block", width: "100%", maxWidth: "48rem", whiteSpace: "normal", wordBreak: "normal" }}
         >
           We don't just build software—we craft intelligent solutions that
           transform businesses, elevate user experiences, and drive measurable

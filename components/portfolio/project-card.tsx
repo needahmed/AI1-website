@@ -6,8 +6,9 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { ImageIcon } from "lucide-react";
 
 interface ProjectCardProps {
   project: Project;
@@ -24,6 +25,7 @@ const categoryLabels: Record<string, string> = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const [imageError, setImageError] = useState(false);
   const { scrollYProgress } = useScroll({
     target: cardRef,
     offset: ["start end", "end start"],
@@ -32,7 +34,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 0.9]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
-  const featuredImage = project.images[0] || "/placeholder-project.jpg";
+  const featuredImage = project.images[0];
 
   return (
     <motion.div
@@ -42,14 +44,21 @@ export function ProjectCard({ project }: ProjectCardProps) {
     >
       <Link href={`/portfolio/${project.slug}`} className="block h-full">
         <Card className="glass-card h-full overflow-hidden transition-all duration-300 hover:shadow-ai1-lg">
-          <div className="relative aspect-video overflow-hidden">
-            <Image
-              src={featuredImage}
-              alt={project.title}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
+          <div className="relative aspect-video overflow-hidden bg-muted">
+            {featuredImage && !imageError ? (
+              <Image
+                src={featuredImage}
+                alt={project.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                onError={() => setImageError(true)}
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-electric-blue/10 to-purple/10">
+                <ImageIcon className="w-12 h-12 text-muted-foreground" />
+              </div>
+            )}
             {project.featured && (
               <div className="absolute top-4 right-4">
                 <Badge className="bg-gradient-electric text-white shadow-lg">

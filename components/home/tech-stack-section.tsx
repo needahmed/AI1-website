@@ -59,7 +59,7 @@ export function TechStackSection() {
       ref={marqueeRef}
       className="py-16 bg-gradient-to-r from-deep-blue via-electric-blue to-purple relative overflow-hidden w-full max-w-full"
     >
-      <div className="container mx-auto px-4 md:px-8 mb-8">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 mb-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

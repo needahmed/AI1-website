@@ -9,7 +9,7 @@ export function ContactHero() {
       {/* Background gradient */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
       
-      <div className="container relative mx-auto px-4 md:px-8 lg:px-12">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,6 +33,7 @@ export function ContactHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
+            style={{ display: "block", width: "100%", whiteSpace: "normal", wordBreak: "normal" }}
           >
             Let's Build Something{" "}
             <span className="gradient-text">Amazing</span> Together
@@ -44,6 +45,7 @@ export function ContactHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
             className="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl"
+            style={{ display: "block", width: "100%", maxWidth: "32rem", whiteSpace: "normal", wordBreak: "normal" }}
           >
             Have a project in mind? We're here to help. Fill out the form below or reach out
             through any of our contact channels. Our team is ready to turn your vision into

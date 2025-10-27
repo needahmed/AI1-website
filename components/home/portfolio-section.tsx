@@ -8,12 +8,13 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ParallaxLayer } from "@/components/animation";
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink, ImageIcon } from "lucide-react";
 import type { Project } from "@prisma/client";
 
 export function PortfolioSection() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -118,17 +119,18 @@ export function PortfolioSection() {
                 className="project-card group overflow-hidden hover:shadow-ai1-lg transition-all duration-300 border-2 hover:border-electric-blue/50"
               >
                 <div className="relative h-64 overflow-hidden bg-muted">
-                  {project.images && project.images.length > 0 ? (
+                  {project.images && project.images.length > 0 && !imageErrors[project.id] ? (
                     <Image
                       src={project.images[0]}
                       alt={project.title}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      onError={() => setImageErrors(prev => ({ ...prev, [project.id]: true }))}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-electric-blue/20 to-purple/20">
-                      <ExternalLink className="w-12 h-12 text-muted-foreground" />
+                      <ImageIcon className="w-12 h-12 text-muted-foreground" />
                     </div>
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

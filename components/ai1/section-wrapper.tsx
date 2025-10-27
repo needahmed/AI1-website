@@ -30,7 +30,7 @@ export function SectionWrapper({
         className
       )}
     >
-      <div className="container mx-auto max-w-7xl">{children}</div>
+      <div className="w-full max-w-7xl mx-auto">{children}</div>
     </section>
   );
 }

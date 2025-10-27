@@ -56,10 +56,16 @@ export function ContactFAQ() {
       <Accordion type="single" collapsible className="w-full">
         {faqs.map((faq, index) => (
           <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger className="text-left">
+            <AccordionTrigger 
+              className="text-left"
+              style={{ display: "block", width: "100%", whiteSpace: "normal", wordBreak: "normal" }}
+            >
               {faq.question}
             </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground">
+            <AccordionContent 
+              className="text-muted-foreground"
+              style={{ display: "block", width: "100%", whiteSpace: "normal", wordBreak: "normal" }}
+            >
               {faq.answer}
             </AccordionContent>
           </AccordionItem>

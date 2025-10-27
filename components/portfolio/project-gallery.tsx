@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ImageLightbox } from "./image-lightbox";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { ImageIcon } from "lucide-react";
 
 interface ProjectGalleryProps {
   images: string[];
@@ -72,6 +73,7 @@ function GalleryImage({
 }: GalleryImageProps) {
   const imageRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -113,20 +115,29 @@ function GalleryImage({
       )}
       onClick={onClick}
     >
-      <Image
-        src={image}
-        alt={title}
-        fill
-        className="object-cover transition-transform duration-500 group-hover:scale-110"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-lg font-semibold text-white">
-            Click to expand
-          </span>
+      {!imageError ? (
+        <>
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            onError={() => setImageError(true)}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-lg font-semibold text-white">
+                Click to expand
+              </span>
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-electric-blue/10 to-purple/10">
+          <ImageIcon className="w-12 h-12 text-muted-foreground" />
         </div>
-      </div>
+      )}
     </motion.div>
   );
 }

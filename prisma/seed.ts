@@ -32,9 +32,9 @@ async function main() {
           "Tailwind CSS",
         ],
         images: [
-          "/projects/ecommerce-1.jpg",
-          "/projects/ecommerce-2.jpg",
-          "/projects/ecommerce-3.jpg",
+          "https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=800&fit=crop",
         ],
         client: "TechRetail Inc.",
         results:
@@ -57,9 +57,9 @@ async function main() {
           "AWS",
         ],
         images: [
-          "/projects/fitness-1.jpg",
-          "/projects/fitness-2.jpg",
-          "/projects/fitness-3.jpg",
+          "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&h=800&fit=crop",
         ],
         client: "FitLife Solutions",
         results:
@@ -75,7 +75,10 @@ async function main() {
           "Complete redesign of corporate website with focus on modern UI/UX, accessibility, and performance optimization.",
         category: "WEB_DEVELOPMENT",
         technologies: ["Next.js", "TypeScript", "Prisma", "Vercel", "Figma"],
-        images: ["/projects/corporate-1.jpg", "/projects/corporate-2.jpg"],
+        images: [
+          "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
+        ],
         client: "Global Tech Corp",
         results:
           "90+ Lighthouse score, 60% improvement in page load times, 35% increase in user engagement",
@@ -90,7 +93,10 @@ async function main() {
           "Complete brand identity redesign including logo, color palette, typography, and brand guidelines for a sustainable fashion company.",
         category: "BRANDING",
         technologies: ["Adobe Illustrator", "Figma", "Adobe Photoshop"],
-        images: ["/projects/brand-1.jpg", "/projects/brand-2.jpg"],
+        images: [
+          "https://images.unsplash.com/photo-1558655146-d09347e92766?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&h=800&fit=crop",
+        ],
         client: "EcoWear Fashion",
         results:
           "Increased brand recognition by 70%, successfully launched across 5 countries",
@@ -106,9 +112,9 @@ async function main() {
         category: "UI_UX_DESIGN",
         technologies: ["Figma", "Adobe XD", "Principle", "UserTesting"],
         images: [
-          "/projects/saas-1.jpg",
-          "/projects/saas-2.jpg",
-          "/projects/saas-3.jpg",
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&h=800&fit=crop",
         ],
         client: "DataInsights Pro",
         results:

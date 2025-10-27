@@ -61,12 +61,20 @@ export function BlogCard({
                 </Badge>
               ))}
             </div>
-            <h3 className="text-xl font-bold tracking-tight transition-colors group-hover:text-ai1-electric">
+            <h3 
+              className="text-xl font-bold tracking-tight transition-colors group-hover:text-ai1-electric"
+              style={{ display: "block", width: "100%", whiteSpace: "normal", wordBreak: "normal" }}
+            >
               {title}
             </h3>
           </CardHeader>
           <CardContent className="flex-1 px-6 pb-0">
-            <p className="text-muted-foreground line-clamp-3">{excerpt}</p>
+            <p 
+              className="text-muted-foreground line-clamp-3"
+              style={{ display: "block", width: "100%", whiteSpace: "normal", wordBreak: "normal" }}
+            >
+              {excerpt}
+            </p>
           </CardContent>
           <CardFooter className="mt-auto w-full justify-between px-6 pb-6 pt-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-4">

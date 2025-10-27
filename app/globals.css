@@ -189,21 +189,60 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
   }
   html {
     @apply overflow-x-hidden;
-    writing-mode: horizontal-tb;
-    text-orientation: mixed;
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    direction: ltr !important;
   }
   body {
     @apply bg-background text-foreground overflow-x-hidden;
-    writing-mode: horizontal-tb;
-    text-orientation: mixed;
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    direction: ltr !important;
   }
-  :where(h1, h2, h3, h4, h5, h6, p, li, blockquote) {
-    writing-mode: horizontal-tb;
-    text-orientation: mixed;
-    white-space: normal;
+  :where(h1, h2, h3, h4, h5, h6, p, li, blockquote, span, div, a, button, label, input, textarea) {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    white-space: normal !important;
+    direction: ltr !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+  
+  /* Force horizontal text for all elements */
+  div, section, article, aside, nav, header, footer, main {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+  }
+  
+  /* Ensure paragraphs have proper display and width */
+  p {
+    display: block !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+  
+  /* Ensure headings have proper display and width */
+  h1, h2, h3, h4, h5, h6 {
+    display: block !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+  
+  /* Fix container widths */
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Force all text elements to have proper word breaking */
+  * {
+    word-break: normal !important;
+    overflow-wrap: normal !important;
   }
 }
 

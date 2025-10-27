@@ -139,7 +139,7 @@ export function TestimonialsSection() {
         <div className="absolute bottom-1/4 -right-32 w-64 h-64 bg-purple/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

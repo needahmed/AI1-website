@@ -44,7 +44,10 @@ export function Headline({
         {children}
       </Component>
       {subtitle && (
-        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl">
+        <p 
+          className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
+          style={{ display: "block", width: "100%", whiteSpace: "normal", wordBreak: "normal" }}
+        >
           {subtitle}
         </p>
       )}

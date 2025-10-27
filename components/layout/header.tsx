@@ -55,7 +55,7 @@ export function Header() {
         className="absolute inset-0 bg-background backdrop-blur-lg"
         style={{ opacity }}
       />
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-4 relative z-10">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
