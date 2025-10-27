@@ -14,7 +14,7 @@ export function ContactHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mx-auto max-w-3xl text-center"
+          className="mx-auto w-full max-w-5xl text-center"
         >
           {/* Badge */}
           <motion.div
@@ -33,7 +33,6 @@ export function ContactHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
-            style={{ display: "block", width: "100%", whiteSpace: "normal", wordBreak: "normal" }}
           >
             Let's Build Something{" "}
             <span className="gradient-text">Amazing</span> Together
@@ -44,8 +43,7 @@ export function ContactHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl"
-            style={{ display: "block", width: "100%", maxWidth: "32rem", whiteSpace: "normal", wordBreak: "normal" }}
+            className="mx-auto w-full max-w-3xl text-lg text-muted-foreground sm:text-xl"
           >
             Have a project in mind? We're here to help. Fill out the form below or reach out
             through any of our contact channels. Our team is ready to turn your vision into

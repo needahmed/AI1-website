@@ -244,6 +244,32 @@
     word-break: normal !important;
     overflow-wrap: normal !important;
   }
+
+  /* Guard against third-party widgets forcing vertical text */
+  .ai1-app [data-orientation="vertical"],
+  .ai1-app [style*="writing-mode: vertical"],
+  .ai1-app [style*="writing-mode:vertical"] {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+  }
+
+  .ai1-app [data-orientation="vertical"] *,
+  .ai1-app [style*="writing-mode: vertical"] *,
+  .ai1-app [style*="writing-mode:vertical"] * {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+  }
+
+  .ai1-app button[data-orientation="vertical"],
+  .ai1-app [role="button"][data-orientation="vertical"] {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    flex-wrap: wrap !important;
+    text-align: left !important;
+  }
 }
 
 @layer utilities {
@@ -263,7 +289,14 @@
   }
   
   .glass-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(241, 245, 249, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(226, 232, 240, 0.5);
+  }
+  
+  .dark .glass-card {
+    background: rgba(30, 41, 59, 0.5);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -287,6 +320,20 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    color: #2563EB; /* Fallback color for browsers that don't support background-clip */
+    /* Add text shadow for better visibility */
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Ensure gradient text has proper contrast in dark mode */
+  .dark .gradient-text {
+    background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 50%, #22D3EE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #60A5FA; /* Lighter fallback for dark mode */
+    /* Add glow effect for better visibility in dark mode */
+    text-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
   }
   
   /* Shadow Utilities - AI1 Theme */

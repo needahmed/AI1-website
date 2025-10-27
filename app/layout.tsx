@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { ChatbotWidget, ChatConsentBanner } from "@/components/chat";
 import { GoogleAnalytics, ConsentBanner } from "@/components/analytics";
 import { OrganizationSchema, WebSiteSchema } from "@/components/seo";
+import Script from "next/script";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -124,10 +125,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${sora.variable} antialiased overflow-x-hidden`}>
+      <body
+        className={`${inter.variable} ${sora.variable} antialiased overflow-x-hidden ai1-app`}
+      >
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:top-4 focus:left-4 focus:p-4 focus:bg-background focus:border-2 focus:border-foreground focus:rounded"
+    className="sr-only focus:not-sr-only focus:absolute focus:z-9999 focus:top-4 focus:left-4 focus:p-4 focus:bg-background focus:border-2 focus:border-foreground focus:rounded"
         >
           Skip to main content
         </a>
@@ -155,7 +158,23 @@ export default function RootLayout({
           <ConsentBanner />
           <GoogleAnalytics />
         </ThemeProvider>
-      </body>
+      
+      {/* WUUNU SNIPPET - DON'T CHANGE THIS (START) */}
+      {process.env.NODE_ENV !== "production" && (
+        <>
+          <Script id="wuunu-ws" strategy="afterInteractive">
+            { `window.__WUUNU_WS__ = "http://127.0.0.1:60738/";` }
+          </Script>
+          <Script
+            id="wuunu-widget"
+            src="https://cdn.jsdelivr.net/npm/@wuunu/widget@0.1?cacheParam=27"
+            strategy="afterInteractive"
+            crossOrigin="anonymous"
+          />
+        </>
+      )}
+      {/* WUUNU SNIPPET - DON'T CHANGE THIS (END) */}
+</body>
     </html>
   );
 }

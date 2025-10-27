@@ -52,20 +52,14 @@ const faqs = [
 
 export function ContactFAQ() {
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="mx-auto max-w-5xl w-full px-4">
       <Accordion type="single" collapsible className="w-full">
         {faqs.map((faq, index) => (
-          <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger 
-              className="text-left"
-              style={{ display: "block", width: "100%", whiteSpace: "normal", wordBreak: "normal" }}
-            >
+          <AccordionItem key={index} value={`item-${index}`} className="w-full">
+            <AccordionTrigger className="w-full text-left whitespace-normal wrap-break-word">
               {faq.question}
             </AccordionTrigger>
-            <AccordionContent 
-              className="text-muted-foreground"
-              style={{ display: "block", width: "100%", whiteSpace: "normal", wordBreak: "normal" }}
-            >
+            <AccordionContent className="w-full text-muted-foreground whitespace-normal wrap-break-word">
               {faq.answer}
             </AccordionContent>
           </AccordionItem>

@@ -62,25 +62,25 @@ export function ServiceHero({ title, subtitle, ctaText }: ServiceHeroProps) {
       {/* Background with zoom effect */}
       <div
         ref={heroRef}
-        className="absolute inset-0 bg-gradient-to-br from-deep-blue/90 via-electric-blue/80 to-purple/90"
+        className="absolute inset-0 bg-gradient-to-br from-deep-blue/50 via-electric-blue/40 to-purple/50"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-background/20" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-background/10" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 md:px-10 h-full flex items-center">
-        <div ref={contentRef} className="max-w-4xl">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white drop-shadow-[0_12px_32px_rgba(8,15,32,0.45)] mb-6 leading-tight">
+        <div ref={contentRef} className="max-w-4xl w-full">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white drop-shadow-2xl mb-6 leading-tight">
             {title}
           </h1>
-          <p className="text-xl md:text-2xl text-white/95 drop-shadow-[0_8px_24px_rgba(8,15,32,0.4)] mb-8 leading-relaxed max-w-3xl">
+          <p className="text-xl md:text-2xl text-white drop-shadow-xl mb-8 leading-relaxed max-w-3xl">
             {subtitle}
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/contact">
               <Button
                 size="lg"
-                className="bg-white text-deep-blue hover:bg-white/90 font-semibold text-lg px-8"
+                className="bg-white text-deep-blue hover:bg-white/90 font-semibold text-lg px-8 shadow-2xl"
               >
                 {ctaText}
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -90,7 +90,7 @@ export function ServiceHero({ title, subtitle, ctaText }: ServiceHeroProps) {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/70 text-white hover:bg-white/15 font-semibold text-lg px-8"
+                className="border-white text-white hover:bg-white/15 font-semibold text-lg px-8 backdrop-blur-sm"
               >
                 Learn More
               </Button>
@@ -100,7 +100,7 @@ export function ServiceHero({ title, subtitle, ctaText }: ServiceHeroProps) {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
   );
 }

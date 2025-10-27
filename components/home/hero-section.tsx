@@ -148,7 +148,7 @@ export function HeroSection() {
           <Button
             size="lg"
             variant="outline"
-            className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6"
+            className="border-white/40 bg-white/5 text-white hover:bg-white/20 hover:text-white backdrop-blur-md text-lg px-8 py-6 transition-all"
           >
             View Our Work
           </Button>

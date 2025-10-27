@@ -176,9 +176,9 @@ export function ClosingCTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="max-w-2xl mx-auto"
+            className="max-w-4xl mx-auto w-full"
           >
-            <div className="glass-card p-8 rounded-2xl border border-white/20">
+            <div className="glass-card p-8 rounded-2xl border border-white/20 w-full">
               <h3 className="text-2xl font-heading font-bold text-white mb-2 text-center">
                 Stay Updated
               </h3>
@@ -186,13 +186,13 @@ export function ClosingCTASection() {
                 Get the latest insights on AI, development, and digital
                 transformation
               </p>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 w-full">
                 <Input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white/40"
+                  className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white/40 w-full"
                 />
-                <Button className="bg-white text-deep-blue hover:bg-white/90 px-8">
+                <Button className="bg-white text-deep-blue hover:bg-white/90 px-8 whitespace-nowrap">
                   Subscribe
                 </Button>
               </div>

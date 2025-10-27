@@ -48,7 +48,7 @@ export function FeaturedPostHero({
         </div>
       )}
 
-      <div className="relative z-10 max-w-3xl">
+      <div className="relative z-10">
         <div className="flex flex-wrap gap-2 mb-4">
           <Badge className="bg-ai1-electric text-white">Featured</Badge>
           {categories.slice(0, 2).map((category) => (
