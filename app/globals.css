@@ -192,9 +192,18 @@
   }
   html {
     @apply overflow-x-hidden;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
   }
   body {
     @apply bg-background text-foreground overflow-x-hidden;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+  }
+  :where(h1, h2, h3, h4, h5, h6, p, li, blockquote) {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    white-space: normal;
   }
 }
 

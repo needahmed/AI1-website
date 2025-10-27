@@ -58,7 +58,7 @@ export function ServiceHero({ title, subtitle, ctaText }: ServiceHeroProps) {
   }, []);
 
   return (
-    <section className="relative h-[70vh] min-h-[500px] overflow-hidden bg-gradient-to-br from-deep-blue via-electric-blue to-purple">
+    <section className="relative min-h-[70vh] md:min-h-[560px] overflow-hidden bg-gradient-to-br from-deep-blue via-electric-blue to-purple py-24 md:py-32 lg:py-36">
       {/* Background with zoom effect */}
       <div
         ref={heroRef}
@@ -68,12 +68,12 @@ export function ServiceHero({ title, subtitle, ctaText }: ServiceHeroProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 md:px-8 h-full flex items-center">
+      <div className="relative z-10 container mx-auto px-6 md:px-10 h-full flex items-center">
         <div ref={contentRef} className="max-w-4xl">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white drop-shadow-[0_12px_32px_rgba(8,15,32,0.45)] mb-6 leading-tight">
             {title}
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl">
+          <p className="text-xl md:text-2xl text-white/95 drop-shadow-[0_8px_24px_rgba(8,15,32,0.4)] mb-8 leading-relaxed max-w-3xl">
             {subtitle}
           </p>
           <div className="flex flex-wrap gap-4">
@@ -90,7 +90,7 @@ export function ServiceHero({ title, subtitle, ctaText }: ServiceHeroProps) {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10 font-semibold text-lg px-8"
+                className="border-white/70 text-white hover:bg-white/15 font-semibold text-lg px-8"
               >
                 Learn More
               </Button>

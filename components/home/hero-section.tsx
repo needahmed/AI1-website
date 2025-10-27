@@ -86,7 +86,7 @@ export function HeroSection() {
       {/* Content */}
       <motion.div
         ref={contentRef}
-        className="relative z-10 container mx-auto px-4 md:px-8 text-center"
+        className="relative z-10 container mx-auto px-6 sm:px-10 lg:px-16 text-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
