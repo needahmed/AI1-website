@@ -86,7 +86,7 @@ export function CTABanner({
               asChild={!!secondaryAction.href}
               className={cn(
                 "hover:scale-105 transition-transform",
-                variant === "gradient" && "border-white/30 text-white hover:bg-white/10"
+                variant === "gradient" && "border-white/30 text-white hover:bg-white/10 hover:text-white"
               )}
             >
               {secondaryAction.href ? (

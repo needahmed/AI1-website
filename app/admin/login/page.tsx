@@ -40,13 +40,13 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 dark:bg-gray-900">
-      <div className="w-full max-w-md space-y-8 rounded-lg bg-white p-8 shadow-lg dark:bg-gray-800">
-        <div>
-          <h2 className="text-center text-3xl font-bold tracking-tight">
+    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 dark:bg-gray-900">
+      <div className="admin-login-form w-full max-w-xl space-y-8 rounded-lg bg-white p-12 shadow-lg dark:bg-gray-800 lg:max-w-2xl">
+        <div className="space-y-3">
+          <h2 className="text-center text-3xl font-bold tracking-tight lg:text-4xl">
             Admin Login
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
+          <p className="mt-2 text-center text-base text-gray-600 dark:text-gray-400">
             Sign in to access the admin dashboard
           </p>
         </div>

@@ -381,3 +381,22 @@
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
 }
+
+/* Admin Login Form Overrides */
+.admin-login-form {
+  width: 100% !important;
+  max-width: 36rem !important; /* max-w-xl */
+}
+
+@media (min-width: 1024px) {
+  .admin-login-form {
+    max-width: 48rem !important; /* lg:max-w-2xl */
+  }
+}
+
+.admin-login-form h2,
+.admin-login-form p,
+.admin-login-form label {
+  width: 100% !important;
+  max-width: none !important;
+}

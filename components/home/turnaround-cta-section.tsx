@@ -177,7 +177,7 @@ export function TurnaroundCTASection() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-10 py-6"
+              className="border-white/30 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm text-lg px-10 py-6"
             >
               Learn More
             </Button>

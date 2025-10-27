@@ -90,7 +90,7 @@ export function ServiceHero({ title, subtitle, ctaText }: ServiceHeroProps) {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/15 font-semibold text-lg px-8 backdrop-blur-sm"
+                className="border-white text-white hover:bg-white/15 hover:text-white font-semibold text-lg px-8 backdrop-blur-sm"
               >
                 Learn More
               </Button>

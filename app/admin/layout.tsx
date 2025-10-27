@@ -8,23 +8,7 @@ export default async function RootAdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await auth();
-
-  if (!session?.user) {
-    redirect("/admin/login");
-  }
-
-  return (
-    <SessionProvider>
-      <AdminLayout
-        user={{
-          name: session.user.name || "Admin",
-          email: session.user.email || "",
-          role: session.user.role,
-        }}
-      >
-        {children}
-      </AdminLayout>
-    </SessionProvider>
-  );
+  // Simply return children without authentication check
+  // Authentication will be handled by individual pages or route groups
+  return <>{children}</>;
 }

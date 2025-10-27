@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
 import "./globals.css";
-import { SmoothScrollProvider } from "@/components/animation";
-import { ParallaxWrapper } from "@/components/animation";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import { Header, Footer, FloatingCTA, PageTransition } from "@/components/layout";
+import { LayoutContent } from "@/components/layout/layout-content";
 import { Toaster } from "@/components/ui/sonner";
 import { ChatbotWidget, ChatConsentBanner } from "@/components/chat";
 import { GoogleAnalytics, ConsentBanner } from "@/components/analytics";
@@ -140,18 +138,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SmoothScrollProvider>
-            <ParallaxWrapper>
-              <Header />
-              <PageTransition>
-                <main id="main-content" className="pt-16">
-                  {children}
-                </main>
-              </PageTransition>
-              <Footer />
-              <FloatingCTA />
-            </ParallaxWrapper>
-          </SmoothScrollProvider>
+          <LayoutContent>{children}</LayoutContent>
           <Toaster />
           <ChatbotWidget />
           <ChatConsentBanner />

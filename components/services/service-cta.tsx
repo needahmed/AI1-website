@@ -42,7 +42,7 @@ export function ServiceCTA({ title, ctaText }: ServiceCTAProps) {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10 font-semibold text-lg px-8"
+                  className="border-white text-white hover:bg-white/10 hover:text-white font-semibold text-lg px-8"
                 >
                   <MessageCircle className="mr-2 w-5 h-5" />
                   Schedule a Call

@@ -45,7 +45,7 @@ export function ClosingCTASection() {
   return (
     <section
       ref={sectionRef}
-      className="py-32 bg-gradient-to-br from-deep-blue via-electric-blue to-purple relative overflow-hidden w-full max-w-full"
+      className="py-32 bg-gradient-to-br from-deep-blue via-electric-blue to-purple dark:from-deep-blue dark:via-electric-blue dark:to-purple relative overflow-hidden w-full max-w-full"
     >
       {/* Animated background */}
       <div className="absolute inset-0">
@@ -93,7 +93,7 @@ export function ClosingCTASection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-10 py-7 min-w-[240px]"
+                className="border-white/30 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm text-lg px-10 py-7 min-w-[240px]"
               >
                 Schedule a Call
               </Button>
@@ -118,14 +118,14 @@ export function ClosingCTASection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
           >
-            <div className="glass-card p-6 rounded-xl border border-white/20 text-center">
-              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
-                <Mail className="w-6 h-6 text-white" />
+            <div className="glass-card p-6 rounded-xl border border-white/20 dark:border-white/20 text-center">
+              <div className="w-12 h-12 rounded-full bg-electric-blue/20 dark:bg-white/10 flex items-center justify-center mx-auto mb-4">
+                <Mail className="w-6 h-6 text-electric-blue dark:text-white" />
               </div>
-              <h3 className="text-white font-heading font-bold mb-2">
+              <h3 className="text-foreground dark:text-white font-heading font-bold mb-2">
                 Email Us
               </h3>
-              <p className="text-white/80 text-sm mb-3">
+              <p className="text-muted-foreground dark:text-white/80 text-sm mb-3">
                 Get a response within 6 hours
               </p>
               <a
@@ -136,14 +136,14 @@ export function ClosingCTASection() {
               </a>
             </div>
 
-            <div className="glass-card p-6 rounded-xl border border-white/20 text-center">
-              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
-                <Phone className="w-6 h-6 text-white" />
+            <div className="glass-card p-6 rounded-xl border border-white/20 dark:border-white/20 text-center">
+              <div className="w-12 h-12 rounded-full bg-electric-blue/20 dark:bg-white/10 flex items-center justify-center mx-auto mb-4">
+                <Phone className="w-6 h-6 text-electric-blue dark:text-white" />
               </div>
-              <h3 className="text-white font-heading font-bold mb-2">
+              <h3 className="text-foreground dark:text-white font-heading font-bold mb-2">
                 Call Us
               </h3>
-              <p className="text-white/80 text-sm mb-3">
+              <p className="text-muted-foreground dark:text-white/80 text-sm mb-3">
                 Speak with our team directly
               </p>
               <a
@@ -154,14 +154,14 @@ export function ClosingCTASection() {
               </a>
             </div>
 
-            <div className="glass-card p-6 rounded-xl border border-white/20 text-center">
-              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
-                <MessageSquare className="w-6 h-6 text-white" />
+            <div className="glass-card p-6 rounded-xl border border-white/20 dark:border-white/20 text-center">
+              <div className="w-12 h-12 rounded-full bg-electric-blue/20 dark:bg-white/10 flex items-center justify-center mx-auto mb-4">
+                <MessageSquare className="w-6 h-6 text-electric-blue dark:text-white" />
               </div>
-              <h3 className="text-white font-heading font-bold mb-2">
+              <h3 className="text-foreground dark:text-white font-heading font-bold mb-2">
                 Live Chat
               </h3>
-              <p className="text-white/80 text-sm mb-3">
+              <p className="text-muted-foreground dark:text-white/80 text-sm mb-3">
                 Chat with us in real-time
               </p>
               <button className="text-cyan hover:text-cyan/80 transition-colors text-sm font-medium">
@@ -178,11 +178,11 @@ export function ClosingCTASection() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="max-w-4xl mx-auto w-full"
           >
-            <div className="glass-card p-8 rounded-2xl border border-white/20 w-full">
-              <h3 className="text-2xl font-heading font-bold text-white mb-2 text-center">
+            <div className="glass-card p-8 rounded-2xl border border-white/20 dark:border-white/20 w-full">
+              <h3 className="text-2xl font-heading font-bold text-foreground dark:text-white mb-2 text-center">
                 Stay Updated
               </h3>
-              <p className="text-white/80 text-center mb-6">
+              <p className="text-muted-foreground dark:text-white/80 text-center mb-6">
                 Get the latest insights on AI, development, and digital
                 transformation
               </p>
@@ -190,13 +190,13 @@ export function ClosingCTASection() {
                 <Input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white/40 w-full"
+                  className="flex-1 bg-muted/50 dark:bg-white/10 border-border dark:border-white/20 text-foreground dark:text-white placeholder:text-muted-foreground dark:placeholder:text-white/50 focus:border-primary dark:focus:border-white/40 w-full"
                 />
-                <Button className="bg-white text-deep-blue hover:bg-white/90 px-8 whitespace-nowrap">
+                <Button className="bg-white text-deep-blue hover:bg-white/90 dark:bg-white dark:text-deep-blue dark:hover:bg-white/90 px-8 whitespace-nowrap">
                   Subscribe
                 </Button>
               </div>
-              <p className="text-white/60 text-xs text-center mt-4">
+              <p className="text-muted-foreground/80 dark:text-white/60 text-xs text-center mt-4">
                 Join 10,000+ subscribers. Unsubscribe anytime.
               </p>
             </div>
