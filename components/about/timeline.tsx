@@ -46,7 +46,7 @@ export function Timeline({ milestones }: TimelineProps) {
       aria-label="Company timeline"
     >
       {/* Timeline line */}
-      <div className="absolute left-8 top-0 h-full w-0.5 bg-gradient-to-b from-brand-electric via-brand-cyan to-brand-purple md:left-1/2" />
+      <div className="pointer-events-none absolute left-8 top-0 h-full w-0.5 rounded-full bg-gradient-to-b from-brand-electric via-brand-cyan to-brand-purple md:left-1/2 md:-translate-x-1/2" />
 
       <div className="space-y-12">
         {milestones.map((milestone, index) => (
@@ -60,9 +60,7 @@ export function Timeline({ milestones }: TimelineProps) {
           >
             {/* Year Badge */}
             <div
-              className={`absolute left-0 md:left-1/2 z-10 flex h-16 w-16 -translate-x-1/2 items-center justify-center rounded-full bg-gradient-to-br from-brand-electric to-brand-cyan shadow-lg shadow-brand-electric/50 ring-4 ring-background ${
-                index % 2 === 0 ? "md:translate-x-[-50%]" : "md:translate-x-[-50%]"
-              }`}
+              className="absolute left-0 md:left-1/2 z-10 flex h-16 w-16 -translate-x-1/2 items-center justify-center rounded-full bg-gradient-to-br from-brand-electric to-brand-cyan shadow-lg shadow-brand-electric/50 ring-4 ring-background md:-translate-x-1/2"
             >
               <span className="text-sm font-bold text-white">
                 {milestone.year}

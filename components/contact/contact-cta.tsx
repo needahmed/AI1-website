@@ -62,7 +62,7 @@ export function ContactCTA() {
           scale: scale,
           opacity: opacity,
         }}
-        className="container"
+        className="container mx-auto px-4 md:px-8 lg:px-12"
       >
         <Card className="relative overflow-hidden border-2 border-primary/20 bg-gradient-to-br from-primary/5 via-primary/10 to-cyan/5 p-8 shadow-xl lg:p-12">
           {/* Animated background gradient */}
