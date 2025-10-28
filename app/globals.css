@@ -270,6 +270,16 @@
     flex-wrap: wrap !important;
     text-align: left !important;
   }
+
+  /* Hide third-party chat (Tawk) until explicitly marked ready */
+  body:not(.chat-ready) #tawkchat-container,
+  body:not(.chat-ready) #tawkchat-minified-wrapper,
+  body:not(.chat-ready) [id^="tawk-"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 }
 
 @layer utilities {

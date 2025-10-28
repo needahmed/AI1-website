@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { createBlogPostAction, updateBlogPostAction } from "@/lib/actions/admin";
+import { PostCategory } from "@prisma/client";
 
 type BlogFormData = {
   slug: string;
@@ -16,7 +17,7 @@ type BlogFormData = {
   author: string;
   authorBio?: string | null;
   authorImage?: string | null;
-  categories: string[];
+  categories: PostCategory[];
   tags: string[];
   publishedAt?: Date | null;
   featured: boolean;
@@ -56,7 +57,11 @@ export function BlogForm({ post, isEdit = false }: BlogFormProps) {
     try {
       const submitData = {
         ...formData,
-        publishedAt: isPublished ? (formData.publishedAt || new Date()) : null,
+        publishedAt: isPublished ? (formData.publishedAt || new Date()) : undefined,
+        authorBio: formData.authorBio || undefined,
+        authorImage: formData.authorImage || undefined,
+        featuredImage: formData.featuredImage || undefined,
+        categories: formData.categories as PostCategory[],
       };
 
       const result = isEdit && post
@@ -94,7 +99,7 @@ export function BlogForm({ post, isEdit = false }: BlogFormProps) {
     });
   };
 
-  const toggleCategory = (category: string) => {
+  const toggleCategory = (category: PostCategory) => {
     setFormData({
       ...formData,
       categories: formData.categories.includes(category)
@@ -103,13 +108,13 @@ export function BlogForm({ post, isEdit = false }: BlogFormProps) {
     });
   };
 
-  const categories = [
-    "WEB_DEVELOPMENT",
-    "AI",
-    "GAME_DEV",
-    "SEO",
-    "INDUSTRY_INSIGHTS",
-    "OTHER",
+  const categories: PostCategory[] = [
+    PostCategory.WEB_DEVELOPMENT,
+    PostCategory.AI,
+    PostCategory.GAME_DEV,
+    PostCategory.SEO,
+    PostCategory.INDUSTRY_INSIGHTS,
+    PostCategory.OTHER,
   ];
 
   return (

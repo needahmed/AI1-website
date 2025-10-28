@@ -63,7 +63,6 @@ export function ImageLightbox({
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
         className="max-w-[95vw] border-none bg-black/95 p-0 sm:max-w-[90vw]"
-        showCloseButton={false}
       >
         <div className="relative flex h-[90vh] flex-col">
           <div className="absolute top-4 right-4 z-10 flex gap-2">

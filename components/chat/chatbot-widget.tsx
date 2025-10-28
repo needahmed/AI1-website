@@ -17,7 +17,7 @@ export function ChatbotWidget({
   tawkToWidgetId = process.env.NEXT_PUBLIC_TAWKTO_WIDGET_ID,
 }: ChatbotWidgetProps) {
   const [hasConsent, setHasConsent] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     // Check for chat consent in localStorage
@@ -27,29 +27,62 @@ export function ChatbotWidget({
     }
   }, []);
 
-  // Don't load if no consent or missing configuration
-  if (!hasConsent || !tawkToPropertyId || !tawkToWidgetId) {
-    return null;
-  }
-
+  const shouldLoad = !!hasConsent && !!tawkToPropertyId && !!tawkToWidgetId;
   const tawkToUrl = `https://embed.tawk.to/${tawkToPropertyId}/${tawkToWidgetId}`;
 
-  return (
-    <>
-      <Script
-        id="tawk-to-script"
-        strategy="lazyOnload"
-        src={tawkToUrl}
-        onLoad={() => {
-          setIsLoaded(true);
-          console.log("Tawk.to chat widget loaded");
-        }}
-        onError={(e) => {
-          console.error("Failed to load Tawk.to chat widget", e);
-        }}
-      />
-    </>
-  );
+  useEffect(() => {
+    if (!hasConsent) return;
+
+    // Hide chat by default; we'll reveal only when ready
+    document.body.classList.remove("chat-ready");
+
+    // Safety timeout in case script loads but widget fails to init
+    const timeoutId = window.setTimeout(() => {
+      setIsReady(false);
+      document.body.classList.remove("chat-ready");
+    }, 15000);
+
+    // Tawk exposes Tawk_API when ready; we poll briefly after script load
+    function tryMarkReady() {
+      // @ts-expect-error - Tawk API injected globally
+      const api = (window as any).Tawk_API;
+      // @ts-expect-error - Tawk load flag
+      const loaded = (window as any).Tawk_LoadStart;
+      if (api && typeof api.onLoad === "function") {
+        api.onLoad = function () {
+          window.clearTimeout(timeoutId);
+          setIsReady(true);
+          document.body.classList.add("chat-ready");
+        };
+      }
+    }
+
+    const pollId = window.setInterval(tryMarkReady, 300);
+    // Try immediately as well
+    tryMarkReady();
+
+    return () => {
+      window.clearTimeout(timeoutId);
+      window.clearInterval(pollId);
+      document.body.classList.remove("chat-ready");
+    };
+  }, [hasConsent]);
+
+  return shouldLoad ? (
+    <Script
+      id="tawk-to-script"
+      strategy="lazyOnload"
+      src={tawkToUrl}
+      onLoad={() => {
+        // Script fetched; readiness handled by effect via Tawk_API.onLoad
+      }}
+      onError={(e) => {
+        console.error("Failed to load Tawk.to chat widget", e);
+        setIsReady(false);
+        document.body.classList.remove("chat-ready");
+      }}
+    />
+  ) : null;
 }
 
 /**

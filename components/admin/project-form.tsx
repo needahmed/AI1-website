@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/select";
 import { toast } from "sonner";
 import { createProjectAction, updateProjectAction } from "@/lib/actions/admin";
+import { ProjectCategory } from "@prisma/client";
 
 type ProjectFormData = {
   slug: string;
@@ -63,9 +64,20 @@ export function ProjectForm({ project, isEdit = false }: ProjectFormProps) {
     setIsLoading(true);
 
     try {
+      const submitData = {
+        ...formData,
+        overview: formData.overview || undefined,
+        challenges: formData.challenges || undefined,
+        solutions: formData.solutions || undefined,
+        client: formData.client || undefined,
+        results: formData.results || undefined,
+        ogImage: formData.ogImage || undefined,
+        category: formData.category as ProjectCategory,
+      };
+      
       const result = isEdit && project
-        ? await updateProjectAction(project.slug, formData)
-        : await createProjectAction(formData);
+        ? await updateProjectAction(project.slug, submitData)
+        : await createProjectAction(submitData);
 
       if (result.success) {
         toast.success(isEdit ? "Project updated successfully" : "Project created successfully");

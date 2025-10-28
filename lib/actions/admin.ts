@@ -6,6 +6,7 @@ import * as projectRepo from "@/lib/repositories/projects";
 import * as blogRepo from "@/lib/repositories/blog";
 import { auth } from "@/lib/auth";
 import { AdminRole, SubscriberStatus } from "@prisma/client";
+import { CreateProjectInput, UpdateProjectInput, CreateBlogPostInput, UpdateBlogPostInput } from "@/lib/schemas";
 
 // Helper to ensure user is authenticated
 async function requireAuth() {
@@ -132,7 +133,7 @@ export async function deleteSubscriberAction(id: string) {
 }
 
 // Projects CRUD (admin versions with revalidation)
-export async function createProjectAction(data: Record<string, unknown>) {
+export async function createProjectAction(data: CreateProjectInput) {
   try {
     await requireAuth();
     const project = await projectRepo.createProject(data);
@@ -147,7 +148,7 @@ export async function createProjectAction(data: Record<string, unknown>) {
   }
 }
 
-export async function updateProjectAction(slug: string, data: Record<string, unknown>) {
+export async function updateProjectAction(slug: string, data: UpdateProjectInput) {
   try {
     await requireAuth();
     const project = await projectRepo.updateProject(slug, data);
@@ -192,7 +193,7 @@ export async function getAllProjectsAdminAction() {
 }
 
 // Blog CRUD (admin versions with revalidation)
-export async function createBlogPostAction(data: Record<string, unknown>) {
+export async function createBlogPostAction(data: CreateBlogPostInput) {
   try {
     await requireAuth();
     const post = await blogRepo.createBlogPost(data);
@@ -207,7 +208,7 @@ export async function createBlogPostAction(data: Record<string, unknown>) {
   }
 }
 
-export async function updateBlogPostAction(slug: string, data: Record<string, unknown>) {
+export async function updateBlogPostAction(slug: string, data: UpdateBlogPostInput) {
   try {
     await requireAuth();
     const post = await blogRepo.updateBlogPost(slug, data);
