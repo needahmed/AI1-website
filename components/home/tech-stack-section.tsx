@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const techStack = [
@@ -24,8 +24,15 @@ const techStack = [
 
 export function TechStackSection() {
   const marqueeRef = useRef<HTMLDivElement>(null);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+
     const setupAnimation = async () => {
       const { gsap } = await import("gsap");
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
@@ -52,7 +59,7 @@ export function TechStackSection() {
     };
 
     setupAnimation();
-  }, []);
+  }, [isClient]);
 
   return (
     <section
@@ -83,19 +90,19 @@ export function TechStackSection() {
           <motion.div
             className="flex gap-8 whitespace-nowrap"
             animate={{
-              x: [0, -1920],
+              x: [0, "-50%"],
             }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 30,
+                duration: 40,
                 ease: "linear",
               },
             }}
           >
-            {/* Duplicate the array to create seamless loop */}
-            {[...techStack, ...techStack].map((tech, index) => (
+            {/* Duplicate the array multiple times to create seamless loop */}
+            {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, index) => (
               <div
                 key={index}
                 className="flex items-center gap-3 px-6 py-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 min-w-fit"
@@ -114,19 +121,19 @@ export function TechStackSection() {
           <motion.div
             className="flex gap-8 whitespace-nowrap"
             animate={{
-              x: [-1920, 0],
+              x: ["-50%", 0],
             }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 30,
+                duration: 40,
                 ease: "linear",
               },
             }}
           >
-            {/* Duplicate the array to create seamless loop */}
-            {[...techStack.slice().reverse(), ...techStack.slice().reverse()].map(
+            {/* Duplicate the array multiple times to create seamless loop */}
+            {[...techStack.slice().reverse(), ...techStack.slice().reverse(), ...techStack.slice().reverse(), ...techStack.slice().reverse()].map(
               (tech, index) => (
                 <div
                   key={index}
