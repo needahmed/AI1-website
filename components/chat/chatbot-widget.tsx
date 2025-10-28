@@ -44,9 +44,7 @@ export function ChatbotWidget({
 
     // Tawk exposes Tawk_API when ready; we poll briefly after script load
     function tryMarkReady() {
-      // @ts-expect-error - Tawk API injected globally
       const api = (window as any).Tawk_API;
-      // @ts-expect-error - Tawk load flag
       const loaded = (window as any).Tawk_LoadStart;
       if (api && typeof api.onLoad === "function") {
         api.onLoad = function () {
