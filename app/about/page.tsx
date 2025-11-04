@@ -95,7 +95,7 @@ export default function AboutPage() {
             {companyStory.headline}
           </Headline>
 
-          <div className="mx-auto max-w-4xl space-y-6 text-left">
+          <div className="mx-auto max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl space-y-6 text-left px-2 sm:px-0">
             {companyStory.story.map((paragraph, index) => (
               <p
                 key={index}

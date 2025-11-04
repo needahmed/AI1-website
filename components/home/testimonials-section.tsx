@@ -151,7 +151,7 @@ export function TestimonialsSection() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6">
             What Our <span className="gradient-text">Clients Say</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto px-2 sm:px-0">
             Don't just take our word for it. Hear from the businesses we've
             helped transform.
           </p>

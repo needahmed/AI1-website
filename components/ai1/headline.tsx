@@ -45,7 +45,7 @@ export function Headline({
       </Component>
       {subtitle && (
         <p 
-          className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
+          className="text-lg md:text-xl text-muted-foreground max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto px-2 sm:px-0"
           style={{ display: "block", width: "100%", whiteSpace: "normal", wordBreak: "normal" }}
         >
           {subtitle}

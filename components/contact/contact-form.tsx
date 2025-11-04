@@ -70,7 +70,7 @@ export function ContactForm() {
       <div className="flex flex-col items-center justify-center space-y-4 rounded-lg border border-border bg-muted/50 p-12 text-center">
         <CheckCircle2 className="h-16 w-16 text-green-500" />
         <h3 className="text-2xl font-bold">Thank You!</h3>
-        <p className="max-w-md text-muted-foreground">
+        <p className="max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl text-muted-foreground">
           We've received your inquiry and our team will get back to you within 6 hours during
           business hours.
         </p>

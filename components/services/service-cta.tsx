@@ -20,7 +20,7 @@ export function ServiceCTA({ title, ctaText }: ServiceCTAProps) {
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <MotionSection variant="scale">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-6xl mx-auto px-2 sm:px-0 text-center">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
               Ready to Get Started?
             </h2>

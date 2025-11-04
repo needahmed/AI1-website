@@ -32,7 +32,7 @@ export default function Error({ error, reset }: ErrorProps) {
           <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground">
             Something Went Wrong
           </h1>
-          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto px-2 sm:px-0">
             We encountered an unexpected error. Don't worry, our team has been
             notified and we're working on a fix.
           </p>
@@ -40,7 +40,7 @@ export default function Error({ error, reset }: ErrorProps) {
 
         {/* Error Details (Development) */}
         {process.env.NODE_ENV === "development" && error.message && (
-          <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-lg text-left max-w-4xl mx-auto">
+          <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-lg text-left max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto px-2 sm:px-0">
             <p className="text-sm font-mono text-destructive break-words">
               {error.message}
             </p>
@@ -71,7 +71,7 @@ export default function Error({ error, reset }: ErrorProps) {
         </div>
 
         {/* Support */}
-        <div className="pt-8 border-t border-border max-w-4xl mx-auto">
+        <div className="pt-8 border-t border-border max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto px-2 sm:px-0">
           <p className="text-sm text-muted-foreground mb-2">
             If the problem persists, please contact our support team
           </p>

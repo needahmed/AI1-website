@@ -109,12 +109,6 @@ export function HeroSection() {
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan via-purple-light to-cyan animate-gradient">
                 AI
               </span>
-              <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-sm font-sans text-cyan/80 whitespace-nowrap">
-                Artificial Intelligence
-              </span>
-              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm font-sans text-purple-light/80 whitespace-nowrap">
-                Authentic Innovation
-              </span>
             </span>
           </h1>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white/90 leading-tight">
@@ -125,8 +119,8 @@ export function HeroSection() {
         {/* Subtitle */}
         <motion.p
           variants={itemVariants}
-          className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-12 leading-relaxed block w-full"
-          style={{ display: "block", width: "100%", maxWidth: "48rem", whiteSpace: "normal", wordBreak: "normal" }}
+          className="text-xl md:text-2xl text-white/80 max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto px-2 sm:px-0 mb-12 leading-relaxed block w-full"
+          style={{ display: "block", width: "100%", whiteSpace: "normal", wordBreak: "normal" }}
         >
           We don't just build software—we craft intelligent solutions that
           transform businesses, elevate user experiences, and drive measurable

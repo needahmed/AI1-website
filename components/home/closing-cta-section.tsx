@@ -70,7 +70,7 @@ export function ClosingCTASection() {
                 <br />
                 Something <span className="text-cyan">Extraordinary</span>?
               </h2>
-              <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed">
+              <p className="text-xl md:text-2xl text-white/90 max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto px-2 sm:px-0 mb-12 leading-relaxed">
                 Let's transform your vision into reality. Get started with a free
                 consultation and see why leading companies choose AI1.
               </p>

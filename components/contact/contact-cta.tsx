@@ -94,7 +94,7 @@ export function ContactCTA() {
               <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
                 Ready to Get Started?
               </h2>
-              <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+              <p className="mx-auto max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl text-lg text-muted-foreground px-2 sm:px-0">
                 Don't waste time with slow agencies. We respond fast because your time is valuable.
               </p>
             </div>

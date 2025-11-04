@@ -124,7 +124,7 @@ function TextAnimationSection() {
           </MotionItem>
 
           <MotionItem>
-            <p className="mx-auto max-w-2xl text-center text-lg text-muted-foreground">
+            <p className="mx-auto max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl text-center text-lg text-muted-foreground px-2 sm:px-0">
               This section demonstrates staggered text animations. Each paragraph and element
               animates in with a slight delay, creating a smooth cascade effect.
             </p>
@@ -275,7 +275,7 @@ function ParallaxSection() {
           <MotionSection variant="scale" className="text-center">
             <Badge className="mb-4">Parallax Effect</Badge>
             <h2 className="mb-6 text-5xl font-bold">Multi-Layer Parallax</h2>
-            <p className="mx-auto mb-8 max-w-2xl text-xl text-muted-foreground">
+            <p className="mx-auto mb-8 max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl text-xl text-muted-foreground px-2 sm:px-0">
               Background layers move at different speeds to create depth. The content moves
               independently from the gradient layers behind it.
             </p>

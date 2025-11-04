@@ -77,7 +77,7 @@ export function Footer() {
                 AI1
               </span>
             </Link>
-            <p className="text-muted-foreground mb-6 max-w-md">
+            <p className="text-muted-foreground mb-6 max-w-full sm:max-w-md md:max-w-lg lg:max-w-2xl">
               Leading the future of AI-powered solutions. We help businesses
               transform through cutting-edge technology and innovative
               strategies.

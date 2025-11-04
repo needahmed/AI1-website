@@ -78,7 +78,7 @@ export default function ServicesPage() {
         {/* Hero Section */}
         <section className="py-24 bg-gradient-to-br from-background via-muted/30 to-background">
           <div className="container mx-auto px-4 md:px-8">
-            <MotionSection variant="slideUp" className="text-center max-w-4xl mx-auto">
+            <MotionSection variant="slideUp" className="text-center max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto px-2 sm:px-0">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6">
                 Our <span className="gradient-text">Services</span>
               </h1>
@@ -136,7 +136,7 @@ export default function ServicesPage() {
         <section className="py-24 bg-gradient-to-br from-deep-blue via-electric-blue to-purple">
           <div className="container mx-auto px-4 md:px-8">
             <MotionSection variant="scale">
-              <div className="max-w-4xl mx-auto text-center">
+              <div className="max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto px-2 sm:px-0 text-center">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
                   Ready to Transform Your Business?
                 </h2>

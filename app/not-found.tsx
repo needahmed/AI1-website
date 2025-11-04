@@ -20,7 +20,7 @@ export default function NotFound() {
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
             Page Not Found
           </h2>
-          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto px-2 sm:px-0">
             Sorry, we couldn't find the page you're looking for. It might have
             been moved or deleted.
           </p>
@@ -43,7 +43,7 @@ export default function NotFound() {
         </div>
 
         {/* Helpful Links */}
-        <div className="pt-8 border-t border-border max-w-4xl mx-auto">
+        <div className="pt-8 border-t border-border max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto px-2 sm:px-0">
           <p className="text-sm text-muted-foreground mb-4">
             Here are some helpful links instead:
           </p>

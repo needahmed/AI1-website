@@ -37,7 +37,7 @@ export function FloatingCTA() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.9 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-6 right-6 z-50"
+          className="hidden md:block fixed bottom-6 right-6 z-50"
         >
           <motion.div
             animate={{

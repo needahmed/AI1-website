@@ -51,7 +51,7 @@ export default function ContactPage() {
 
       {/* Contact Form */}
       <SectionWrapper>
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl px-2 sm:px-0">
           <div className="mb-12 text-center">
             <Headline
               subtitle="Fill out the form below and we'll get back to you within 6 hours during business hours."

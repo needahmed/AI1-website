@@ -96,7 +96,7 @@ export function ProcessTimeline({ steps }: ProcessTimelineProps) {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6">
             Our <span className="gradient-text">Process</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto px-2 sm:px-0">
             A proven methodology that delivers exceptional results, step by step
           </p>
         </div>

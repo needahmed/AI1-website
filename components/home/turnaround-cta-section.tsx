@@ -69,7 +69,7 @@ export function TurnaroundCTASection() {
         ref={contentRef}
         className="container mx-auto px-4 md:px-8 relative z-10"
       >
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-6xl mx-auto px-2 sm:px-0 text-center">
           {/* Icon */}
           <motion.div
             initial={{ scale: 0 }}
@@ -124,7 +124,7 @@ export function TurnaroundCTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-lg text-white/80 mb-12 max-w-2xl mx-auto"
+            className="text-lg text-white/80 mb-12 max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl mx-auto px-2 sm:px-0"
           >
             From concept to deployment, our agile team works around the clock to
             bring your vision to life. When you need speed without sacrifice,

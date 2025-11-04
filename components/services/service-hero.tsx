@@ -73,7 +73,7 @@ export function ServiceHero({ title, subtitle, ctaText }: ServiceHeroProps) {
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white drop-shadow-2xl mb-6 leading-tight">
             {title}
           </h1>
-          <p className="text-xl md:text-2xl text-white drop-shadow-xl mb-8 leading-relaxed max-w-3xl">
+          <p className="text-xl md:text-2xl text-white drop-shadow-xl mb-8 leading-relaxed max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl">
             {subtitle}
           </p>
           <div className="flex flex-wrap gap-4">

@@ -75,7 +75,7 @@ export function ProjectCaseStudy({ project }: ProjectCaseStudyProps) {
             {project.title}
           </h1>
 
-          <p className="text-muted-foreground mb-8 max-w-3xl text-xl">
+          <p className="text-muted-foreground mb-8 max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl text-xl px-2 sm:px-0">
             {project.description}
           </p>
 

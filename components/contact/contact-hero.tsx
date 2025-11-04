@@ -43,7 +43,7 @@ export function ContactHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="mx-auto w-full max-w-3xl text-lg text-muted-foreground sm:text-xl"
+            className="mx-auto w-full max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl text-lg text-muted-foreground sm:text-xl px-2 sm:px-0"
           >
             Have a project in mind? We're here to help. Fill out the form below or reach out
             through any of our contact channels. Our team is ready to turn your vision into

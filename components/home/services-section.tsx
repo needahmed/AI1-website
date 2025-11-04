@@ -124,7 +124,7 @@ export function ServicesSection() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6">
             <span className="gradient-text">Services</span> That Scale
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto px-2 sm:px-0">
             Comprehensive solutions designed to meet your business needs, from
             conception to deployment and beyond.
           </p>

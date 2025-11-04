@@ -50,7 +50,7 @@ export function CTABanner({
         {description && (
           <p
             className={cn(
-              "text-lg md:text-xl max-w-2xl mx-auto",
+              "text-lg md:text-xl max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl mx-auto px-2 sm:px-0",
               variant === "gradient" ? "text-white/90" : "text-muted-foreground"
             )}
           >
