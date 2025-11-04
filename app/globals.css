@@ -220,14 +220,21 @@
   }
   
   /* Ensure paragraphs have proper display and width */
-  p {
+  /* Exception: Don't override max-width if Tailwind class is applied */
+  p:not([class*="max-w"]):not([style*="max-width"]) {
     display: block !important;
     width: auto !important;
     max-width: 100% !important;
   }
   
   /* Ensure headings have proper display and width */
-  h1, h2, h3, h4, h5, h6 {
+  /* Exception: Don't override max-width if Tailwind class is applied */
+  h1:not([class*="max-w"]):not([style*="max-width"]),
+  h2:not([class*="max-w"]):not([style*="max-width"]),
+  h3:not([class*="max-w"]):not([style*="max-width"]),
+  h4:not([class*="max-w"]):not([style*="max-width"]),
+  h5:not([class*="max-w"]):not([style*="max-width"]),
+  h6:not([class*="max-w"]):not([style*="max-width"]) {
     display: block !important;
     width: auto !important;
     max-width: 100% !important;
@@ -279,6 +286,28 @@
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
+  }
+
+  /* Fix for fixed positioned dialogs and banners - prevent width constraints on content */
+  /* Fixed positioned elements and their children should not be constrained by parent max-width rules */
+  /* Remove max-width constraints from all content inside fixed dialogs/banners */
+  [role="dialog"] p,
+  [role="dialog"] h1,
+  [role="dialog"] h2,
+  [role="dialog"] h3,
+  [role="dialog"] h4,
+  [role="dialog"] h5,
+  [role="dialog"] h6,
+  [role="dialog"] div:not([class*="max-w"]):not([style*="max-width"]),
+  [class*="fixed"]:not([class*="overflow"]) p,
+  [class*="fixed"]:not([class*="overflow"]) h1,
+  [class*="fixed"]:not([class*="overflow"]) h2,
+  [class*="fixed"]:not([class*="overflow"]) h3,
+  [class*="fixed"]:not([class*="overflow"]) h4,
+  [class*="fixed"]:not([class*="overflow"]) h5,
+  [class*="fixed"]:not([class*="overflow"]) h6,
+  [class*="fixed"]:not([class*="overflow"]) div:not([class*="max-w"]):not([style*="max-width"]) {
+    max-width: none !important;
   }
 }
 

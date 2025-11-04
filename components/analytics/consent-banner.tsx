@@ -46,7 +46,7 @@ export function ConsentBanner() {
   }
 
   return (
-    <div className="fixed bottom-4 left-4 right-4 z-[100] md:left-auto md:right-4 md:max-w-md">
+    <div className="fixed bottom-4 left-4 right-4 z-[100] w-[calc(100vw-2rem)] md:left-auto md:right-4 md:w-auto md:min-w-[450px] md:max-w-lg">
       <Card className="shadow-2xl border-2">
         <CardContent className="p-6 relative">
           <button

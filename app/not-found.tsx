@@ -6,7 +6,7 @@ import { SectionWrapper } from "@/components/ai1";
 export default function NotFound() {
   return (
     <SectionWrapper className="min-h-screen flex items-center justify-center">
-      <div className="text-center space-y-8 max-w-2xl mx-auto px-4">
+      <div className="text-center space-y-8 max-w-5xl mx-auto px-4">
         {/* 404 Number */}
         <div className="relative">
           <h1 className="gradient-text text-9xl font-heading font-bold">
@@ -20,7 +20,7 @@ export default function NotFound() {
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
             Page Not Found
           </h2>
-          <p className="text-lg text-muted-foreground max-w-md mx-auto">
+          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
             Sorry, we couldn't find the page you're looking for. It might have
             been moved or deleted.
           </p>
@@ -43,7 +43,7 @@ export default function NotFound() {
         </div>
 
         {/* Helpful Links */}
-        <div className="pt-8 border-t border-border max-w-md mx-auto">
+        <div className="pt-8 border-t border-border max-w-4xl mx-auto">
           <p className="text-sm text-muted-foreground mb-4">
             Here are some helpful links instead:
           </p>
