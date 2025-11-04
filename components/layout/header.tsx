@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, ChevronDown } from "lucide-react";
+import { Menu, ChevronDown, Home, Briefcase, User, BookOpen, Mail, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,19 +23,19 @@ import { ThemeToggle } from "./theme-toggle";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const services = [
-  { name: "Web & App Development", href: "/services/web-app-development" },
-  { name: "Game Development", href: "/services/game-development" },
-  { name: "AI Solutions & Automations", href: "/services/ai-solutions" },
-  { name: "SEO Services", href: "/services/seo-services" },
-  { name: "Branding & UI/UX", href: "/services/branding-uiux" },
+  { name: "Web & App Development", href: "/services/web-app-development", icon: Sparkles },
+  { name: "Game Development", href: "/services/game-development", icon: Sparkles },
+  { name: "AI Solutions & Automations", href: "/services/ai-solutions", icon: Sparkles },
+  { name: "SEO Services", href: "/services/seo-services", icon: Sparkles },
+  { name: "Branding & UI/UX", href: "/services/branding-uiux", icon: Sparkles },
 ];
 
 const navigationLinks = [
-  { name: "Home", href: "/" },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "About", href: "/about" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/", icon: Home },
+  { name: "Portfolio", href: "/portfolio", icon: Briefcase },
+  { name: "About", href: "/about", icon: User },
+  { name: "Blog", href: "/blog", icon: BookOpen },
+  { name: "Contact", href: "/contact", icon: Mail },
 ];
 
 export function Header() {
@@ -158,62 +158,106 @@ export function Header() {
                   <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80">
-                <SheetHeader>
-                  <SheetTitle>
-                    <span className="gradient-text text-2xl font-heading font-bold">
-                      AI1
-                    </span>
-                  </SheetTitle>
-                </SheetHeader>
-                <nav className="mt-8 flex flex-col space-y-4">
-                  {navigationLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
+              <SheetContent 
+                side="right" 
+                className="w-80 p-0 overflow-y-auto bg-gradient-to-b from-background via-background to-muted/20 dark:from-background dark:via-background dark:to-muted/10"
+              >
+                {/* Header with logo and close */}
+                <div className="sticky top-0 z-10 border-b border-border/50 bg-background/95 backdrop-blur-sm px-6 py-5">
+                  <div className="flex items-center justify-between">
+                    <SheetTitle className="mb-0">
+                      <span className="gradient-text text-2xl font-heading font-bold">
+                        AI1
+                      </span>
+                    </SheetTitle>
+                  </div>
+                </div>
+
+                {/* Navigation Content */}
+                <div className="flex-1 px-4 py-6">
+                  <nav className="flex flex-col space-y-1">
+                    {/* Main Navigation Links */}
+                    {navigationLinks.map((link) => {
+                      const Icon = link.icon;
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          onClick={() => setIsOpen(false)}
+                          className="group"
+                        >
+                          <Button
+                            variant={isActivePath(link.href) ? "default" : "ghost"}
+                            className={cn(
+                              "w-full justify-start font-medium h-12 rounded-lg transition-all gap-3",
+                              isActivePath(link.href)
+                                ? "bg-primary text-primary-foreground shadow-sm"
+                                : "hover:bg-muted/80 hover:text-foreground text-muted-foreground group-hover:translate-x-1"
+                            )}
+                          >
+                            <Icon className="size-5" />
+                            {link.name}
+                          </Button>
+                        </Link>
+                      );
+                    })}
+
+                    {/* Divider */}
+                    <div className="my-4 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
+                    {/* Services Section */}
+                    <div className="space-y-1">
+                      <div className="px-3 py-2">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                          Services
+                        </p>
+                      </div>
+                      {services.map((service) => {
+                        const ServiceIcon = service.icon;
+                        return (
+                          <Link
+                            key={service.href}
+                            href={service.href}
+                            onClick={() => setIsOpen(false)}
+                            className="group"
+                          >
+                            <Button
+                              variant={
+                                isActivePath(service.href) ? "default" : "ghost"
+                              }
+                              className={cn(
+                                "w-full justify-start h-11 rounded-lg pl-6 transition-all text-sm gap-3",
+                                isActivePath(service.href)
+                                  ? "bg-primary text-primary-foreground shadow-sm"
+                                  : "hover:bg-muted/80 hover:text-foreground text-muted-foreground group-hover:translate-x-1"
+                              )}
+                            >
+                              <ServiceIcon className="size-4 opacity-70" />
+                              {service.name}
+                            </Button>
+                          </Link>
+                        );
+                      })}
+                    </div>
+
+                    {/* Divider */}
+                    <div className="my-4 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
+                    {/* CTA Button */}
+                    <Link 
+                      href="/contact" 
                       onClick={() => setIsOpen(false)}
+                      className="mt-2"
                     >
                       <Button
-                        variant={isActivePath(link.href) ? "default" : "ghost"}
-                        className="w-full justify-start font-medium"
+                        variant="default"
+                        className="w-full gradient-ai1 border-0 font-semibold h-12 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
                       >
-                        {link.name}
+                        Get Started
                       </Button>
                     </Link>
-                  ))}
-
-                  {/* Services in Mobile */}
-                  <div className="space-y-2">
-                    <p className="px-4 text-sm font-semibold text-muted-foreground">
-                      Services
-                    </p>
-                    {services.map((service) => (
-                      <Link
-                        key={service.href}
-                        href={service.href}
-                        onClick={() => setIsOpen(false)}
-                      >
-                        <Button
-                          variant={
-                            isActivePath(service.href) ? "default" : "ghost"
-                          }
-                          className="w-full justify-start pl-8"
-                        >
-                          {service.name}
-                        </Button>
-                      </Link>
-                    ))}
-                  </div>
-
-                  <Link href="/contact" onClick={() => setIsOpen(false)}>
-                    <Button
-                      variant="default"
-                      className="w-full gradient-ai1 border-0 font-semibold"
-                    >
-                      Get Started
-                    </Button>
-                  </Link>
-                </nav>
+                  </nav>
+                </div>
               </SheetContent>
             </Sheet>
           </div>
