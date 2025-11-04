@@ -20,7 +20,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ThemeToggle } from "./theme-toggle";
-import { motion, useScroll, useTransform } from "framer-motion";
 
 const services = [
   { name: "Web & App Development", href: "/services/web-app-development" },
@@ -41,8 +40,6 @@ const navigationLinks = [
 export function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = React.useState(false);
-  const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 100], [0, 0.8]);
 
   const isActivePath = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -50,11 +47,7 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40">
-      <motion.div
-        className="absolute inset-0 bg-background backdrop-blur-lg"
-        style={{ opacity }}
-      />
+    <header className="fixed top-0 left-0 right-0 z-50 liquid-glass-navbar">
       <div className="w-full max-w-7xl mx-auto px-4 relative z-10">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -65,11 +58,14 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
+          <nav className="hidden md:flex items-center space-x-2">
             <Link href="/">
               <Button
-                variant={isActivePath("/") ? "default" : "ghost"}
-                className="font-medium"
+                variant="glass"
+                className={cn(
+                  "font-light",
+                  isActivePath("/") && "liquid-glass-btn-active"
+                )}
               >
                 Home
               </Button>
@@ -79,21 +75,22 @@ export function Header() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
-                  variant={
-                    isActivePath("/services") ? "default" : "ghost"
-                  }
-                  className="font-medium"
+                  variant="glass"
+                  className={cn(
+                    "font-light",
+                    isActivePath("/services") && "liquid-glass-btn-active"
+                  )}
                 >
                   Services
                   <ChevronDown className="ml-1 size-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-56">
+              <DropdownMenuContent align="start" className="w-56 liquid-glass-navbar border-0">
                 {services.map((service) => (
                   <DropdownMenuItem key={service.href} asChild>
                     <Link
                       href={service.href}
-                      className="w-full cursor-pointer"
+                      className="w-full cursor-pointer font-light rounded-xl hover:bg-white/10 dark:hover:bg-white/5"
                     >
                       {service.name}
                     </Link>
@@ -104,8 +101,11 @@ export function Header() {
 
             <Link href="/portfolio">
               <Button
-                variant={isActivePath("/portfolio") ? "default" : "ghost"}
-                className="font-medium"
+                variant="glass"
+                className={cn(
+                  "font-light",
+                  isActivePath("/portfolio") && "liquid-glass-btn-active"
+                )}
               >
                 Portfolio
               </Button>
@@ -113,8 +113,11 @@ export function Header() {
 
             <Link href="/about">
               <Button
-                variant={isActivePath("/about") ? "default" : "ghost"}
-                className="font-medium"
+                variant="glass"
+                className={cn(
+                  "font-light",
+                  isActivePath("/about") && "liquid-glass-btn-active"
+                )}
               >
                 About
               </Button>
@@ -122,8 +125,11 @@ export function Header() {
 
             <Link href="/blog">
               <Button
-                variant={isActivePath("/blog") ? "default" : "ghost"}
-                className="font-medium"
+                variant="glass"
+                className={cn(
+                  "font-light",
+                  isActivePath("/blog") && "liquid-glass-btn-active"
+                )}
               >
                 Blog
               </Button>
@@ -131,8 +137,11 @@ export function Header() {
 
             <Link href="/contact">
               <Button
-                variant={isActivePath("/contact") ? "default" : "ghost"}
-                className="font-medium"
+                variant="glass"
+                className={cn(
+                  "font-light",
+                  isActivePath("/contact") && "liquid-glass-btn-active"
+                )}
               >
                 Contact
               </Button>
@@ -144,8 +153,8 @@ export function Header() {
             <ThemeToggle />
             <Link href="/contact" className="hidden md:block">
               <Button
-                variant="default"
-                className="gradient-ai1 border-0 font-semibold"
+                variant="glass"
+                className="font-light liquid-glass-btn-active"
               >
                 Get Started
               </Button>
@@ -154,11 +163,11 @@ export function Header() {
             {/* Mobile Menu Trigger */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild className="md:hidden">
-                <Button variant="ghost" size="icon" aria-label="Open menu">
+                <Button variant="glass" size="icon" aria-label="Open menu">
                   <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80">
+              <SheetContent side="right" className="w-80 liquid-glass-navbar border-l-0">
                 <SheetHeader>
                   <SheetTitle>
                     <span className="gradient-text text-2xl font-heading font-bold">
@@ -166,7 +175,7 @@ export function Header() {
                     </span>
                   </SheetTitle>
                 </SheetHeader>
-                <nav className="mt-8 flex flex-col space-y-4">
+                <nav className="mt-8 flex flex-col space-y-3">
                   {navigationLinks.map((link) => (
                     <Link
                       key={link.href}
@@ -174,8 +183,11 @@ export function Header() {
                       onClick={() => setIsOpen(false)}
                     >
                       <Button
-                        variant={isActivePath(link.href) ? "default" : "ghost"}
-                        className="w-full justify-start font-medium"
+                        variant="glass"
+                        className={cn(
+                          "w-full justify-start font-light",
+                          isActivePath(link.href) && "liquid-glass-btn-active"
+                        )}
                       >
                         {link.name}
                       </Button>
@@ -184,7 +196,7 @@ export function Header() {
 
                   {/* Services in Mobile */}
                   <div className="space-y-2">
-                    <p className="px-4 text-sm font-semibold text-muted-foreground">
+                    <p className="px-4 text-sm font-light text-muted-foreground">
                       Services
                     </p>
                     {services.map((service) => (
@@ -194,10 +206,11 @@ export function Header() {
                         onClick={() => setIsOpen(false)}
                       >
                         <Button
-                          variant={
-                            isActivePath(service.href) ? "default" : "ghost"
-                          }
-                          className="w-full justify-start pl-8"
+                          variant="glass"
+                          className={cn(
+                            "w-full justify-start pl-8 font-light",
+                            isActivePath(service.href) && "liquid-glass-btn-active"
+                          )}
                         >
                           {service.name}
                         </Button>
@@ -207,8 +220,8 @@ export function Header() {
 
                   <Link href="/contact" onClick={() => setIsOpen(false)}>
                     <Button
-                      variant="default"
-                      className="w-full gradient-ai1 border-0 font-semibold"
+                      variant="glass"
+                      className="w-full font-light liquid-glass-btn-active"
                     >
                       Get Started
                     </Button>

@@ -75,7 +75,7 @@ export function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-deep-blue via-electric-blue to-purple w-full max-w-full"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-deep-blue via-electric-blue to-purple w-full max-w-full -mt-16 pt-16"
     >
       {/* Animated background gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
