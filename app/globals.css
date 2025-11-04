@@ -341,6 +341,94 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
   
+  /* Liquid Glass Navbar - Light Mode */
+  .liquid-glass-navbar {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 
+      0 8px 32px 0 rgba(37, 99, 235, 0.08),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.25),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Liquid Glass Navbar - Dark Mode */
+  .dark .liquid-glass-navbar {
+    background: rgba(10, 25, 41, 0.4);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      0 8px 32px 0 rgba(37, 99, 235, 0.15),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Liquid Glass Button Base */
+  .liquid-glass-btn {
+    background: rgba(90, 143, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(90, 143, 255, 0.25);
+    border-radius: 20px;
+    box-shadow: 
+      0 4px 12px 0 rgba(90, 143, 255, 0.15),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 0 rgba(90, 143, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .liquid-glass-btn:hover {
+    transform: scale(1.05);
+    background: rgba(90, 143, 255, 0.18);
+    border-color: rgba(90, 143, 255, 0.4);
+    box-shadow: 
+      0 8px 24px 0 rgba(90, 143, 255, 0.3),
+      0 0 32px 0 rgba(90, 143, 255, 0.2),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 0 rgba(90, 143, 255, 0.3);
+  }
+  
+  /* Dark Mode Liquid Glass Button */
+  .dark .liquid-glass-btn {
+    background: rgba(90, 143, 255, 0.15);
+    border: 1px solid rgba(90, 143, 255, 0.3);
+    box-shadow: 
+      0 4px 12px 0 rgba(90, 143, 255, 0.2),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 0 0 rgba(90, 143, 255, 0.25);
+  }
+  
+  .dark .liquid-glass-btn:hover {
+    background: rgba(90, 143, 255, 0.25);
+    border-color: rgba(90, 143, 255, 0.5);
+    box-shadow: 
+      0 8px 24px 0 rgba(90, 143, 255, 0.4),
+      0 0 40px 0 rgba(90, 143, 255, 0.3),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 0 rgba(90, 143, 255, 0.4);
+  }
+  
+  /* Active/Selected Glass Button */
+  .liquid-glass-btn-active {
+    background: rgba(90, 143, 255, 0.25);
+    border-color: rgba(90, 143, 255, 0.4);
+    box-shadow: 
+      0 4px 16px 0 rgba(90, 143, 255, 0.25),
+      0 0 24px 0 rgba(90, 143, 255, 0.15),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.35);
+  }
+  
+  .dark .liquid-glass-btn-active {
+    background: rgba(90, 143, 255, 0.35);
+    border-color: rgba(90, 143, 255, 0.5);
+    box-shadow: 
+      0 4px 16px 0 rgba(90, 143, 255, 0.35),
+      0 0 32px 0 rgba(90, 143, 255, 0.25),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+  }
+  
   /* Gradient Utilities */
   .gradient-ai1 {
     background: linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #06B6D4 100%);
